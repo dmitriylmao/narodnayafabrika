@@ -1,0 +1,47 @@
+
+.header {
+  background-color: var(--color-background-light); /* Белый фон */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Легкая тень */
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-background-gray);
+}
+
+.container {
+  /* Ограничиваем контент по ширине и центрируем */
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  
+  /* Flexbox для расположения лого и навигации */
+  display: flex;
+  justify-content: space-between; /* Лого слева, Навигация справа */
+  align-items: center; /* Центрирование по вертикали */
+}
+
+.logo {
+  font-size: 1.5rem; /* Размер шрифта для названия */
+  font-weight: 800; /* Жирный шрифт */
+  color: var(--color-primary); /* Цвет из переменной (синий) */
+  text-decoration: none;
+  position: relative;
+}
+
+.logo::after {
+  content: none; /* Это полностью удаляет псевдоэлемент */
+}
+
+.navList {
+  list-style: none; /* Убираем стандартные маркеры списка */
+  display: flex;
+  gap: var(--spacing-lg); /* Расстояние между элементами меню */
+}
+
+.navLink {
+  color: var(--color-text-dark); /* Темный цвет текста */
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: var(--color-primary); /* При наведении - синий */
+}

@@ -1,0 +1,25 @@
+
+:root {
+
+  /* Основной цвет дял акцентов  */
+  --color-primary: #007bff; 
+  --color-secondary: #28a745; 
+  
+  /*текст */
+  --color-text-dark: #161616; 
+  --color-text-light: #eeeeee;
+  
+  /* фон */
+  --color-background-light: #ffffff;
+  --color-background-gray: #888888;
+  
+  /* шрифт */
+  --font-base: var(--font-raleway); 
+  
+  /* размеры (Отступы и т.п.) */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 3rem;
+}
