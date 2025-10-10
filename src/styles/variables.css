@@ -12,6 +12,7 @@
   /* фон */
   --color-background-light: #ffffff;
   --color-background-gray: #888888;
+  --color-background-dark: #161616;
   
   /* шрифт */
   --font-base: var(--font-raleway); 

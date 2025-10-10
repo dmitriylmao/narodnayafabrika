@@ -1,14 +1,11 @@
-// src/components/Footer/Footer.js
-// Server Component (по умолчанию)
 
 import Link from 'next/link';
 import styles from './Footer.module.css';
 
-// Данные для колонок навигации
 const aboutLinks = [
   { href: '/about', label: 'О компании' },
-  { href: '/delivery', label: 'Условия доставки', external: false }, // Предполагаем новую страницу
-  { href: '/payments', label: 'Условия оплаты', external: false }, // Предполагаем новую страницу
+  { href: '/delivery', label: 'Условия доставки', external: false }, 
+  { href: '/payments', label: 'Условия оплаты', external: false }, 
 ];
 
 const contactInfo = [
@@ -17,6 +14,7 @@ const contactInfo = [
   { type: 'address', value: 'г. Аэрозольск, ул. Заводская, 1' },
 ];
 
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -24,10 +22,10 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
         
-        {/* === БЛОК 1: Навигация и Контакты === */}
+        {/* Навигация и Контакты */}
         <div className={styles.topRow}>
           
-          {/* 1. Колонка О компании / Навигация */}
+          {/* О компании / Навигация */}
           <div className={styles.navSection}>
             <h4 className={styles.navTitle}>Информация</h4>
             <ul className={styles.navList}>
@@ -39,7 +37,6 @@ export default function Footer() {
                 </li>
               ))}
               <li>
-                {/* Ссылка на существующую страницу Контакты */}
                 <Link href="/contact" className={styles.navLink}>
                   Контакты
                 </Link>
@@ -47,13 +44,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* 2. Колонка Контакты */}
+          {/* Контакты */}
           <div className={styles.contactSection}>
             <h4 className={styles.navTitle}>Связь</h4>
             {contactInfo.map((item, index) => (
               <div key={index} className={styles.contactItem}>
                 <p className={styles.contactText}>
-                  {/* Простая заглушка для иконок */}
                   {item.type === 'phone' && '📞 '}
                   {item.type === 'email' && '✉️ '}
                   {item.type === 'address' && '📍 '}
@@ -64,7 +60,6 @@ export default function Footer() {
             ))}
           </div>
           
-          {/* 3. Политика Конфиденциальности */}
           <div className={styles.policySection}>
             <Link href="/policy" className={styles.policyLink}>
               ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ
@@ -72,17 +67,12 @@ export default function Footer() {
           </div>
         </div>
         
-        {/* === БЛОК 2: Копирайт и Иконки === */}
         <div className={styles.bottomRow}>
           <p className={styles.copyright}>
             © {currentYear} ООО "Народная фабрика". Все права защищены.
           </p>
           
-          {/* Заглушка для иконок платежных систем */}
           <div className={styles.paymentIcons}>
-            {/* В реальном проекте здесь были бы SVG/PNG иконки */}
-            <span>VISA</span>
-            <span>MasterCard</span>
             <span>MIR</span>
           </div>
         </div>

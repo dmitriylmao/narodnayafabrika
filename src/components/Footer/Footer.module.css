@@ -1,20 +1,17 @@
-/* src/components/Footer/Footer.module.css */
 
 .footer {
-  /* Темный фон для подвала */
-  background-color: var(--color-text-dark); /* Используем темный цвет из переменных */
-  color: var(--color-text-light); /* Светлый текст */
-  padding: var(--spacing-xl) 0 var(--spacing-md);
-  /* Используем легкую толщину для всего текста, как на референсе */
-  font-weight: 300; 
-  font-size: 0.95rem;
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+  padding: var(--spacing-lg) 0 var(--spacing-md);
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .container {
-  /* Максимальная ширина и центрирование, как в Header */
-  max-width: 1200px;
+  background-color:darkgreen;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
+  padding: 0 var(--spacing-lg);
 }
 
 .topRow {
@@ -22,27 +19,36 @@
   justify-content: space-between;
   gap: var(--spacing-lg);
   padding-bottom: var(--spacing-xl);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Легкий разделитель */
+  border-bottom: 1px solid var(--color-background-gray);
 }
-
-/* --- Стили для секций --- */
 
 .navSection, 
 .contactSection, 
 .policySection {
-  /* Занимаем примерно поровну места */
   flex: 1; 
   min-width: 150px;
 }
 
-.navTitle {
-  font-weight: 700; /* Жирный заголовок */
-  font-size: 1rem;
-  margin-bottom: var(--spacing-lg);
-  color: var(--color-primary); /* Акцентный цвет для заголовка */
+.navSection{
+  background-color: blue;
+}
+.contactSection{
+  background-color: rgb(48, 35, 0);
+}
+.policySection{
+  background-color: rgb(78, 1, 78);
+  display: flex;
+  align-items: center;      /* вертикальное центрирование */
+  justify-content: flex-end;/* прижать содержимое вправо */
+  padding: 0; 
 }
 
-/* --- Стили для навигации --- */
+.navTitle {
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-primary);
+}
 
 .navList {
   list-style: none;
@@ -57,13 +63,12 @@
   color: var(--color-text-light);
   text-decoration: none;
   transition: color 0.2s ease;
+  background-color: brown;
 }
 
 .navLink:hover {
   color: var(--color-primary);
 }
-
-/* --- Стили для контактов и политики --- */
 
 .contactItem {
   margin-bottom: var(--spacing-sm);
@@ -74,17 +79,21 @@
 }
 
 .policyLink {
+  display: inline-flex;
+  align-items: center; 
+  justify-content: center;
+  line-height: 1;
   color: var(--color-text-light);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
+  padding: 1px 0px;
+  background-color: rgb(0, 2, 94);
 }
 
 .policyLink:hover {
   color: var(--color-primary);
 }
-
-/* --- Нижняя строка (Копирайт) --- */
 
 .bottomRow {
   display: flex;
@@ -94,15 +103,14 @@
 }
 
 .copyright {
-  font-size: 0.8rem;
+  font-size: 14px;
   margin: 0;
 }
 
 .paymentIcons span {
-  /* Заглушки для иконок */
   margin-left: var(--spacing-md);
   font-size: 0.7rem;
   padding: 3px 6px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--color-background-gray);
   border-radius: 2px;
 }
