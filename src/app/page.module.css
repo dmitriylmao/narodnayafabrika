@@ -1,6 +1,6 @@
 
 .pageWrapper {
-  max-width: 1200px; 
+  max-width: 1600px; 
+  padding: 0 var(--spacing-lg);
   margin: 0 auto; 
-  background-color: aqua;
 }

@@ -1,0 +1,45 @@
+
+.intro {
+  padding: 60px 0; 
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px; 
+  background-color: aquamarine;
+}
+
+.leftColumn {
+  flex: 3;
+}
+
+.mainTitle {
+  font-size: 132px; 
+  font-weight: 900; 
+  line-height: 1; 
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.rightColumn {
+  flex: 1.5; 
+  text-align: right; 
+  padding-top: 38px;
+}
+
+.description {
+  font-size: 22px; 
+  font-weight: 500; 
+  line-height: 1.1;
+  color: var(--color-text-dark);
+  margin-bottom: 90px; 
+}
+
+.aboutButton {
+  color: var(--color-text-dark); 
+  font-size: 36px; 
+  font-weight: 700;
+  margin: 0;
+  padding: 0; 
+  border: none;
+  background: none;
+}

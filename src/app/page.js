@@ -1,6 +1,7 @@
 
 import styles from './page.module.css';
-import HeroSection from '@/components/HeroSection/HeroSection'; 
+import HeroSection from '@/components/HeroSection/HeroSection';
+import IntroSection from '@/components/IntroSection/IntroSection'; 
 
 export default function HomePage() {
   return (
@@ -8,8 +9,7 @@ export default function HomePage() {
       <HeroSection /> 
       
       <div className={styles.pageWrapper} id="main-content"> 
-        <h2>Контент после Hero</h2>
-        <p>Текст для скролла.</p>
+        <IntroSection />
       </div>
     </>
   );
