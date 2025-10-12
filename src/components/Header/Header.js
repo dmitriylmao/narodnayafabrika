@@ -1,5 +1,6 @@
 
 import Link from 'next/link';
+import Image from 'next/image'; 
 import styles from '@/components/Header/Header.module.css';
 
 const navLinks = [
@@ -12,11 +13,23 @@ const navLinks = [
 ];
 
 export default function Header() {
+
+  const LOGO_WIDTH = 120; 
+  const LOGO_HEIGHT = 120; 
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          Народная фабрика
+          
+          <Image
+            src="/logo.png"
+            alt="Народная фабрика - Завод аэрозолей"
+            width={LOGO_WIDTH}
+            height={LOGO_HEIGHT}
+            className={styles.logoImage} 
+          />
+          
         </Link>
         
         <nav className={styles.nav}>

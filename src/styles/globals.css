@@ -52,6 +52,6 @@ a:hover::after {
 }
 
 main {
-  padding: var(--spacing-xl) 0;
+  padding: 0 0;
   flex-grow: 1;
 }
