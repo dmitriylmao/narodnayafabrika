@@ -69,7 +69,7 @@ export default function Footer() {
         
         <div className={styles.bottomRow}>
           <p className={styles.copyright}>
-            © {currentYear} ООО "Народная фабрика". Все права защищены.
+            © {currentYear} ООО &quot;Народная фабрика&quot;. Все права защищены.
           </p>
           
           <div className={styles.paymentIcons}>
