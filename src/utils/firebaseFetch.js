@@ -1,4 +1,3 @@
-
 import { db } from '@/firebase/config';
 import { collection, getDocs, query, orderBy, where } from 'firebase/firestore'; 
 
@@ -8,6 +7,7 @@ import { collection, getDocs, query, orderBy, where } from 'firebase/firestore';
  * @returns {Array} Массив объектов, представляющих документы.
  */
 export async function getAllDocuments(collectionName) {
+    // NOTE: db теперь доступен благодаря фиксу в config.js
     try {
         const q = query(
             collection(db, collectionName),
@@ -16,15 +16,20 @@ export async function getAllDocuments(collectionName) {
 
         const querySnapshot = await getDocs(q);
         
-        const documents = querySnapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data(), 
-            createdAt: doc.data().createdAt ? doc.data().createdAt.toDate().toISOString() : null
-        }));
+        const documents = querySnapshot.docs.map(doc => {
+            const data = doc.data();
+            return {
+                id: doc.id,
+                ...data, 
+                // !!! ПРАВИЛЬНО: Конвертируем Timestamp в строку для передачи с сервера на клиент
+                createdAt: data.createdAt && data.createdAt.toDate ? data.createdAt.toDate().toISOString() : null
+            };
+        });
 
         return documents;
 
     } catch (error) {
+        // Ошибка, которую ты видел, будет здесь поймана, если fix 1 не сработает
         console.error(`Ошибка при получении документов из ${collectionName}:`, error);
         return [];
     }
@@ -50,11 +55,13 @@ export async function getDocumentBySlug(collectionName, slug) {
         }
 
         const doc = querySnapshot.docs[0];
+        const data = doc.data();
         
         const documentData = {
             id: doc.id,
-            ...doc.data(),
-            createdAt: doc.data().createdAt ? doc.data().createdAt.toDate().toISOString() : null
+            ...data,
+            // !!! ПРАВИЛЬНО: Конвертируем Timestamp в строку для передачи с сервера на клиент
+            createdAt: data.createdAt && data.createdAt.toDate ? data.createdAt.toDate().toISOString() : null
         };
 
         return documentData;
