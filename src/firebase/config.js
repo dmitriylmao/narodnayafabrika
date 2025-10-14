@@ -1,9 +1,9 @@
-
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
+  // Ключи должны быть прокинуты через NEXT_PUBLIC_ в Vercel
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
@@ -12,9 +12,23 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+// Инициализируем app, db и auth как let
+let app;
+let auth;
+let db;
 
-export const auth = getAuth(app);    //(вход админа)
-export const db = getFirestore(app); //(новости, товары)
+// !!! КРИТИЧЕСКОЕ ИСПРАВЛЕНИЕ: Инициализируем Firebase ТОЛЬКО в браузере. !!!
+if (typeof window !== 'undefined') {
+  try {
+    app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+    auth = getAuth(app); 
+  } catch (error) {
+    // В случае ошибки (например, уже инициализирован)
+    console.error("Firebase initialization error on client:", error);
+  }
+}
 
+// Экспортируем то, что было инициализировано (на сервере будет undefined, на клиенте - объекты)
+export { auth, db };
 export default app;
