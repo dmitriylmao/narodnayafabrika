@@ -1,0 +1,84 @@
+
+.section {
+    width: 100%;
+    background-color: var(--color-blue, #007bff); 
+    padding: 20px 0;
+    margin: 40px 0;
+    overflow: hidden; 
+    border-radius: 12px; 
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0); 
+    }
+    to {
+        transform: translateX(-50%); 
+    }
+}
+
+.marqueeContainer {
+    color: white; 
+    font-size: 4vw; 
+    font-weight: 900;
+    text-transform: uppercase;
+    white-space: nowrap; 
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.marqueeContent {
+    width: 200%; 
+    animation: marquee 40s linear infinite; 
+    
+    word-spacing: 40px; 
+    color: transparent; 
+
+    -webkit-text-stroke-width: 1px; 
+    -webkit-text-stroke-color: white;
+}
+
+.marqueeNormal {
+    color: white; 
+    margin-right: 20px;
+}
+
+.marqueeStroke {
+    color: transparent; 
+    
+    -webkit-text-stroke-width: 2px; 
+    -webkit-text-stroke-color: white; 
+    
+    margin-right: 20px; 
+}
+
+.cardsContainer {
+    display: flex;
+    padding: 0 40px; 
+    gap: 20px;
+    
+}
+
+.moreLinkBlock {
+    flex-shrink: 0; 
+    width: 300px;
+    height: auto; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.moreLinkBlock:hover {
+    transform: scale(1.03);
+}
+
+.moreLinkText {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}

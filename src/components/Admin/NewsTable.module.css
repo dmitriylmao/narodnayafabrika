@@ -1,0 +1,97 @@
+
+.tableContainer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tableTitle {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    table-layout: fixed; 
+}
+
+.th, .td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    word-wrap: break-word;
+}
+
+.th {
+    background-color: #eef;
+    color: #333;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.tdId {
+    width: 60px; 
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.tdSlug {
+    width: 150px;
+    font-style: italic;
+    color: #666;
+}
+
+.tdActions {
+    width: 100px;
+    text-align: center;
+}
+
+.tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+.button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    font-size: 0.85rem;
+}
+
+.deleteButton {
+    background-color: #dc3545;
+    color: white;
+}
+
+.deleteButton:hover {
+    background-color: #c82333;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

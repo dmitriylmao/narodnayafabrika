@@ -75,6 +75,19 @@ export default function Footer() {
           <div className={styles.paymentIcons}>
             <span>MIR</span>
           </div>
+
+          <Link 
+            href="/admin/login" 
+            className={styles.adminKeyLink}
+            title="Вход для администратора"
+          >
+            <img 
+              src="/key.svg" 
+              alt="Admin Login" 
+              className={styles.adminKeyIcon} 
+            />
+          </Link>
+          
         </div>
       </div>
     </footer>
