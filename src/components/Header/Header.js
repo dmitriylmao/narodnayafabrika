@@ -8,7 +8,7 @@ const navLinks = [
   { href: '/products', label: 'Продукция' },
   { href: '/contract', label: 'Контрактное производство' },
   { href: '/news', label: 'Новости' },
-  { href: '/job', label: 'Вакансии' },
+  { href: '/vacancies', label: 'Вакансии' },
   { href: '/contact', label: 'Контакты' },
 ];
 
