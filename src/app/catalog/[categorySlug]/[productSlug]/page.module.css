@@ -1,0 +1,100 @@
+.pageContainer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+    color: #0f172a;
+    font-family: 'Inter', sans-serif;
+}
+
+.productContainer {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.imageContainer {
+    flex: 1 1 400px;
+    max-width: 450px;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imageContainer:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.productImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.infoContainer {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.brand {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #0f172a;
+}
+
+.packSize {
+    font-size: 16px;
+    color: #475569;
+    margin-bottom: 20px;
+}
+
+.whatsappButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.whatsappButton:hover {
+    background-color: #1ebe5d;
+}
+
+.descriptionContainer {
+    margin-top: 40px;
+    line-height: 1.6;
+    color: #334155;
+}
+
+.descriptionContainer h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .productContainer {
+        flex-direction: column;
+    }
+    .imageContainer, .infoContainer {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}

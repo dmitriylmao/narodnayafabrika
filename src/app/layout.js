@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="ru" className={`${raleway.variable}`}>
       <body>
         <AuthContextProvider>
-          <Header />
+          
           <main>
             {children} 
           </main>

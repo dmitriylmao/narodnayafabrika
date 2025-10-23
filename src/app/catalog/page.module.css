@@ -1,0 +1,34 @@
+.page {
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 34px;
+    font-weight: 800;
+    margin-bottom: 32px;
+    color: #002b40;
+}
+
+.status {
+    color: #4a5d6a;
+    margin-top: 20px;
+}
+
+.error {
+    color: red;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.grid {
+    width: 100%;
+    max-width: 1280px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    gap: 28px;
+    padding: 0 16px;
+}

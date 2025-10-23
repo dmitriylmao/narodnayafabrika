@@ -5,7 +5,7 @@ import styles from '@/components/Header/Header.module.css';
 
 const navLinks = [
   { href: '/about', label: 'О нас' },
-  { href: '/products', label: 'Продукция' },
+  { href: '/catalog', label: 'Каталог' },
   { href: '/contract', label: 'Контрактное производство' },
   { href: '/news', label: 'Новости' },
   { href: '/vacancies', label: 'Вакансии' },
