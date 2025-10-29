@@ -2,33 +2,13 @@
 
 import { useParams, notFound } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { getDocumentBySlug } from '@/utils/firebaseFetch'; 
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '@/app/news/[slug]/NewsDetailPage.module.css';
 
 const formatDate = (timestamp) => {
-    if (!timestamp || typeof timestamp.toDate !== 'function') {
-        if (typeof timestamp === 'string') {
-             try {
-                const date = new Date(timestamp);
-                if (isNaN(date)) return '';
-                return date.toLocaleDateString('ru-RU', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                });
-             } catch (e) {
-                return '';
-             }
-        }
-        return '';
-    }
-    
-    const date = timestamp.toDate();
-    
+    if (!timestamp) return '';
+    const date = new Date(timestamp);
     return date.toLocaleDateString('ru-RU', { 
         year: 'numeric', 
         month: 'long', 
@@ -41,20 +21,22 @@ const formatDate = (timestamp) => {
 export default function NewsDetailClient() {
     const params = useParams();
     const slug = params.slug ? decodeURIComponent(params.slug) : null; 
-    
+
     const [newsItem, setNewsItem] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (!slug) {
-             setLoading(false);
-             return;
+            setLoading(false);
+            return;
         }
 
         const fetchData = async () => {
             try {
-                const item = await getDocumentBySlug('news', slug);
-                setNewsItem(item);
+                const res = await fetch(`/api/news`);
+                const allNews = await res.json();
+                const item = allNews.find(n => n.slug === slug);
+                setNewsItem(item || null);
             } catch (error) {
                 console.error("Ошибка загрузки новости:", error);
             } finally {
@@ -70,7 +52,7 @@ export default function NewsDetailClient() {
     }
 
     if (!newsItem) {
-        notFound(); 
+        notFound();
         return null;
     }
 
@@ -81,7 +63,6 @@ export default function NewsDetailClient() {
 
     return (
         <div className={styles.container}>
-            
             <header className={styles.header}>
                 <h1 className={styles.title}>{newsItem.title}</h1>
                 <p className={styles.date}>Опубликовано: {formattedDate}</p>

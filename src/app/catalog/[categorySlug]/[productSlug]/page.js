@@ -1,72 +1,58 @@
-'use client';
+// src/app/catalog/[categorySlug]/[productSlug]/page.js
 
-import React, { useState, useEffect } from 'react';
+import { notFound } from 'next/navigation';
 import BrandProducts from '@/components/Catalog/BrandProducts';
-import { useParams } from 'next/navigation';
-import { db } from '@/firebase/config';
-import { collection, query, where, getDocs, onSnapshot } from 'firebase/firestore';
 import Breadcrumbs from '@/components/Catalog/Breadcrumbs';
 import styles from './page.module.css';
+import { 
+    getAllProductsSlugs, 
+    getProductData, 
+    getProductsByCategorySlug 
+} from '@/utils/catalog'; 
 
-export default function ProductPage() {
-    const { categorySlug, productSlug } = useParams();
+export async function generateStaticParams() {
+    const slugs = getAllProductsSlugs(); 
+    
+    return slugs.map((item) => ({
+        categorySlug: item.categorySlug,
+        productSlug: item.productSlug,
+    }));
+}
 
-    const [product, setProduct] = useState(null);
-    const [category, setCategory] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+export async function generateMetadata({ params }) {
+    const { categorySlug, productSlug } = await params; 
 
-    useEffect(() => {
-        if (!categorySlug || !productSlug) return;
+    const product = await getProductData(categorySlug, productSlug);
 
-        const fetchData = async () => {
-            try {
-                const qCat = query(collection(db, 'productCategories'));
-                const catSnapshot = await getDocs(qCat);
-                const matchedCategory = catSnapshot.docs
-                    .map(doc => ({ id: doc.id, ...doc.data() }))
-                    .find(cat => cat.slug === categorySlug);
+    if (!product) {
+        return { title: 'Товар не найден' };
+    }
 
-                if (!matchedCategory) {
-                    setError('Категория не найдена');
-                    setLoading(false);
-                    return;
-                }
+    return {
+        title: `${product.title} - ${product.brand}`, 
+        description: product.contentHtml ? product.contentHtml.substring(0, 150) : `Подробное описание товара ${product.title}.`,
+    };
+}
 
-                setCategory(matchedCategory);
 
-                const qProd = query(
-                    collection(db, 'productItems'),
-                    where('categoryId', '==', matchedCategory.id)
-                );
+export default async function ProductPage({ params }) {
+    const { categorySlug, productSlug } = await params;
 
-                const unsubscribe = onSnapshot(qProd, (snap) => {
-                    const items = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                    const matchedProduct = items.find(p => p.slug === productSlug);
+    const product = await getProductData(categorySlug, productSlug);
 
-                    if (!matchedProduct) {
-                        setError('Товар не найден');
-                        setLoading(false);
-                        return;
-                    }
-
-                    setProduct(matchedProduct);
-                    setLoading(false);
-                });
-
-                return () => unsubscribe();
-            } catch (err) {
-                console.error(err);
-                setError('Ошибка при загрузке данных');
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, [categorySlug, productSlug]);
-
-    if (loading) return <div className={styles.pageContainer}><p>Загрузка...</p></div>;
-    if (error) return <div className={styles.pageContainer}><p className={styles.error}>{error}</p></div>;
+    if (!product) {
+        notFound();
+    }
+    
+    const categoryData = getProductsByCategorySlug(categorySlug);
+    const categoryName = categoryData ? categoryData.name : categorySlug; 
+    
+    const brandName = product.brand;
+    const baseProductName = product.title;
+    const packSize = product.volume;
+    const imageUrl = product.image;
+    const descriptionHtml = product.contentHtml;
+    const relatedProducts = product.relatedProducts;
 
     const whatsappNumber = '79991234567';
     const whatsappLink = `https://wa.me/${whatsappNumber}`;
@@ -75,28 +61,27 @@ export default function ProductPage() {
         <div className={styles.pageContainer}>
 
             <Breadcrumbs 
-    categoryName={category?.name} 
-    categorySlug={category?.slug} 
-    productName={product?.baseProductName} 
-    productSlug={product?.slug} 
-/>
-
+                categoryName={categoryName} 
+                categorySlug={categorySlug} 
+                productName={baseProductName} 
+                productSlug={productSlug} 
+            />
 
             <div className={styles.productContainer}>
                 <div className={styles.imageContainer}>
                     <img
-                        src={product.imageUrl || 'https://placehold.co/400x400/f3f4f6/a3a3a3?text=Нет+Фото'}
-                        alt={product.name}
+                        src={imageUrl || 'https://placehold.co/400x400/f3f4f6/a3a3a3?text=Нет+Фото'}
+                        alt={baseProductName}
                         className={styles.productImage}
                     />
                 </div>
 
                 <div className={styles.infoContainer}>
-                    <h2 className={styles.brand}>{product.brandName}</h2>
+                    <h2 className={styles.brand}>{brandName}</h2>
                     <h1 className={styles.title}>
-                        {product.baseProductName} {product.assortmentName && `- ${product.assortmentName}`}
+                        {baseProductName} 
                     </h1>
-                    {product.packSize && <p className={styles.packSize}>{product.packSize}</p>}
+                    {packSize && <p className={styles.packSize}>{packSize}</p>}
 
                     <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className={styles.whatsappButton}>
                         Связаться
@@ -104,17 +89,16 @@ export default function ProductPage() {
                 </div>
             </div>
 
-            {product.description && (
+            {descriptionHtml && (
                 <div className={styles.descriptionContainer}>
                     <h3>Описание</h3>
-                    <p>{product.description}</p>
+                    <div dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
                 </div>
             )}
 
             <BrandProducts 
-                brandName={product.brandName} 
-                categoryId={product.categoryId}
-                currentProductId={product.id} 
+                brandName={brandName} 
+                relatedProducts={relatedProducts} 
             />
 
         </div>

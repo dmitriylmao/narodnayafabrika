@@ -1,9 +1,9 @@
-
 .container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
     min-height: 80vh;
+    margin-top: 120px;
 }
 
 .pageTitle {
@@ -21,11 +21,11 @@
     margin-bottom: 30px;
 }
 
-/* Сетка для карточек */
+/* Сетка для карточек (ИЗМЕНЕНО: теперь вертикальный список) */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-direction: column; /* Элементы располагаются вертикально */
+    gap: 15px; /* Уменьшаем отступ для более плотного списка */
     margin-bottom: 50px;
 }
 

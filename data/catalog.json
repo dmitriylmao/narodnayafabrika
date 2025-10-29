@@ -1,0 +1,76 @@
+{
+  "categories": [
+    {
+      "slug": "osvezhiteli-vozduha",
+      "name": "Освежители воздуха",
+      "image": "https://i.postimg.cc/7h5jCY3z/Snimok-ekrana-2025-10-23-213024.png",
+      "description": "Освежители воздуха устраняют неприятные запахи в помещениях.",
+      "products": [
+        {
+          "slug": "osvezhitel-apelsin",
+          "brand": "KLIK",
+          "title": "Освежитель воздуха - Апельсин",
+          "volume": "400мл",
+          "image": "https://i.postimg.cc/NMvmLz3L/photo-2025-10-15-18-47-15.jpg"
+        },
+        {
+          "slug": "osvezhitel-antibak",
+          "brand": "KLIK",
+          "title": "Освежитель воздуха - Антибак",
+          "volume": "300мл",
+          "image": "https://i.postimg.cc/SK8q03Rq/2025-10-21-233403.png"
+        },
+        {
+          "slug": "osvezhitel-fly-limon",
+          "brand": "KLIK",
+          "title": "Освежитель воздуха Fly - лимон",
+          "volume": "300мл",
+          "image": "https://i.postimg.cc/CLLPCnKJ/bloger-dmitrij-kuplinov-perestanet-vypuskat-roliki-vo-vkontakte-1733745805634381280.jpg"
+        }
+      ]
+    },
+
+
+
+    {
+      "slug": "sredstvo-zaschity-ot-nasekomyh",
+      "name": "Средство защиты от насекомых",
+      "image": "https://i.postimg.cc/0QDchM0W/Snimok-ekrana-2025-10-23-213134.png",
+      "description": "редство для выведения нежелательных насекомых в доме",
+      "products": [
+        {
+          "slug": "sheriff-sredstvo-zaschity-ot-nasekomyh-protiv-muravev",
+          "brand": "SHERIFF",
+          "title": "Средство защиты от насекомых - против муравьев",
+          "volume": "400мл",
+          "image": "https://i.postimg.cc/SsftJYYQ/Snimok-ekrana-2025-10-23-221412.png"
+        }
+      ]
+    },
+
+
+
+    {
+      "slug": "neytralizatory-zapahov",
+      "name": "Нейтрализаторы запахов",
+      "image": "https://i.postimg.cc/fb3Hjg3q/Snimok-ekrana-2025-10-23-213108.png",
+      "description": "Средства для борьбы с устойчивыми запахами.",
+      "products": [
+        {
+          "slug": "green-house-neytralizator-zapahov-siren",
+          "brand": "Green House",
+          "title": "Нейтрализатор запахов - Сирень",
+          "volume": "300мл",
+          "image": "https://i.postimg.cc/RZPSnqfL/Snimok-ekrana-2025-10-23-221202.png"
+        },
+        {
+          "slug": "neytralizator-ag",
+          "brand": "AG+",
+          "title": "Нейтрализатор запахов с серебром",
+          "volume": "200мл",
+          "image": "/images/products/ag.jpg"
+        }
+      ]
+    }
+  ]
+}

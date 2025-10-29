@@ -1,15 +1,13 @@
+// src/app/news/page.js
 
-import React from 'react';
-import { getAllDocuments } from '@/utils/firebaseFetch'; 
 import NewsCard from '@/components/News/NewsCard';
 import styles from './NewsPage.module.css'; 
+import { getAllNewsSlugs } from '@/utils/news'; 
 
-export const revalidate = 60; 
 
 export default async function NewsPage() {
-    
-    const news = await getAllDocuments('news');
-    
+    const news = getAllNewsSlugs(); 
+
     return (
         <div className={styles.container}>
             <h1 className={styles.pageTitle}>Актуальные Новости</h1>
@@ -21,11 +19,10 @@ export default async function NewsPage() {
             ) : (
                 <div className={styles.cardGrid}>
                     {news.map(item => (
-                        <NewsCard key={item.id} newsItem={item} />
+                        <NewsCard key={item.slug} newsItem={item} /> 
                     ))}
                 </div>
             )}
-            
         </div>
     );
 }

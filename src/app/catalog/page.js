@@ -1,67 +1,36 @@
-'use client';
-
-import React, { useState, useEffect } from 'react';
 import Breadcrumbs from '@/components/Catalog/Breadcrumbs';
 import Link from 'next/link';
-import { db } from '@/firebase/config';
-import { collection, query, onSnapshot, orderBy } from 'firebase/firestore';
-
 import CategoryCard from '@/components/Catalog/CategoryCard';
 import styles from './page.module.css';
+import { getAllCategories } from '@/utils/catalog';
 
-export default function CatalogPage() {
-    const [categories, setCategories] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+export default async function CatalogPage() {
+  const categories = getAllCategories();
 
-    useEffect(() => {
-        const q = query(
-            collection(db, 'productCategories'),
-            orderBy('order', 'asc')
-        );
-
-        const unsubscribe = onSnapshot(
-            q,
-            (snapshot) => {
-                setCategories(
-                    snapshot.docs.map(doc => ({
-                        id: doc.id,
-                        ...doc.data()
-                    }))
-                );
-                setLoading(false);
-            },
-            (err) => {
-                console.error("Ошибка загрузки категорий:", err);
-                setError("Не удалось загрузить категории");
-                setLoading(false);
-            }
-        );
-
-        return () => unsubscribe();
-    }, []);
-
+  if (categories.length === 0) {
     return (
-        <div className={styles.page}>
-            
-            <Breadcrumbs />
-
-            <h1 className={styles.title}>Каталог</h1>
-
-            {loading && <p className={styles.status}>Загрузка...</p>}
-            {error && <p className={styles.error}>{error}</p>}
-
-            <div className={styles.grid}>
-                {categories.map(category => (
-                    <Link key={category.id} href={`/catalog/${category.slug}`}>
-                        <CategoryCard category={category} />
-                    </Link>
-                ))}
-            </div>
-
-            {!loading && categories.length === 0 && (
-                <p className={styles.status}>Категорий пока нет</p>
-            )}
-        </div>
+      <div className={styles.page}>
+        <Breadcrumbs />
+        <h1 className={styles.title}>Каталог</h1>
+        <p className={styles.status}>Категорий пока нет</p>
+      </div>
     );
+  }
+
+  return (
+    <div className={styles.page}>
+      <Breadcrumbs />
+
+      <h1 className={styles.title}>Каталог</h1>
+
+      <div className={styles.grid}>
+        {categories.map(category => (
+          <Link key={category.slug} href={`/catalog/${category.slug}`}>
+            <CategoryCard category={category} />
+          </Link>
+        ))}
+      </div>
+
+    </div>
+  );
 }
