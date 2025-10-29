@@ -1,0 +1,48 @@
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.cardWrapper:hover {
+  box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.2);
+}
+
+.brandName {
+  font-size: 2.2em;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transform: translate(var(--tx, 0px), var(--ty, 0px));
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+
+.arrowIcon {
+  font-size: 2.5em;
+  font-weight: 300;
+  transform: translate(var(--tx, 0px), var(--ty, 0px));
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.cardWrapper:hover .arrowIcon {
+  transform: translate(calc(var(--tx, 0px) + 10px), var(--ty, 0px));
+}

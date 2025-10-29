@@ -1,9 +1,11 @@
+// src/app/catalog/[categorySlug]/page.js
+
 import { notFound } from 'next/navigation';
 import Breadcrumbs from '@/components/Catalog/Breadcrumbs';
 import ProductCard from '@/components/Catalog/ProductCard';
 import CategorySidebar from '@/components/Catalog/CategorySidebar';
 import styles from './page.module.css';
-import { getAllCategories, getProductsByCategorySlug } from '@/utils/catalog';
+import { getAllCategories, getProductsByCategorySlug, getAllBrands } from '@/utils/catalog';
 
 export async function generateStaticParams() {
   const categories = getAllCategories();
@@ -39,6 +41,7 @@ export default async function CategoryPage({ params }) {
   }
 
   const allCategories = getAllCategories();
+  const allBrands = getAllBrands();
   const products = categoryData.products || [];
 
   return (
@@ -52,6 +55,7 @@ export default async function CategoryPage({ params }) {
 
         <CategorySidebar
           categories={allCategories}
+          allBrands={allBrands}
           activeCategorySlug={categorySlug}
         />
 

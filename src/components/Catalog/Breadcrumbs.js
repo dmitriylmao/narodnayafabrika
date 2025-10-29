@@ -1,20 +1,28 @@
-// src/components/Catalog/Breadcrumbs.js
 'use client';
 
 import React from 'react';
 import Link from 'next/link';
 import styles from './Breadcrumbs.module.css';
 
-export default function Breadcrumbs({ categoryName, productName, categorySlug, productSlug }) {
+export default function Breadcrumbs({
+  categoryName,
+  productName,
+  categorySlug,
+  productSlug,
+  brandName,
+  brandSlug
+}) {
   const breadcrumbs = [
     { name: 'Каталог', href: '/catalog' }
   ];
 
-  if (categoryName && categorySlug) {
+  if (brandName && brandSlug) {
+    breadcrumbs.push({ name: brandName, href: `/catalog/brand/${brandSlug}` });
+  } else if (categoryName && categorySlug) {
     breadcrumbs.push({ name: categoryName, href: `/catalog/${categorySlug}` });
   }
 
-  if (productName && productSlug && categorySlug) {
+  if (productName) {
     breadcrumbs.push({ name: productName });
   }
 

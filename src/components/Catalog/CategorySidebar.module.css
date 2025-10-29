@@ -1,67 +1,135 @@
+/* src/components/Catalog/CategorySidebar.module.css */
+
 .sidebar {
-    width: 280px;
-    flex-shrink: 0;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 10px;
-
-    position: fixed;
-    top: 100px;
-
-    align-self: flex-start; 
-    margin-top: 140px;
+  width: 280px;
+  flex-shrink: 0;
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 76px;
+  align-self: flex-start;
 }
 
 .list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .link {
-    display: flex;
-    align-items: center;
-    padding: 12px 10px;
-    text-decoration: none;
-    color: #333;
-    border-radius: 6px;
-    margin-bottom: 5px;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding: 12px 10px;
+  text-decoration: none;
+  color: #333;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 14px;
 }
 
 .link:hover {
-    background-color: #ececec;
+  background-color: #dbdbdb;
 }
 
 .icon {
-    width: 30px;
-    height: 30px;
-    object-fit: cover;   
-    margin-right: 12px;
-    border-radius: 4px;  
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  margin-right: 12px;
+  border-radius: 4px;
 }
 
 .iconPlaceholder {
-    width: 30px;
-    height: 30px;
-    margin-right: 12px;
-    background-color: #ddd;
-    border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  margin-right: 12px;
+  background-color: #ddd;
+  border-radius: 4px;
 }
 
 .active {
-    background-color: #007bff;
-    color: white;
-    font-weight: 600;
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
 }
 
 .active:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
-@media (max-width: 900px) { 
-    .sidebar {
-        display: none;
-    }
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+.brandsToggle {
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 10px;
+  justify-content: space-between;
+  background-color: #f9f9f9 !important;
+  color: #333 !important;
+  padding: 12px 10px;
+  border-radius: 6px;
+}
+
+.brandsToggle:hover {
+  background-color: #ececec !important;
+}
+
+.brandsActive {
+  background-color: #e0e0e0 !important;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  font-size: 10px;
+  margin-left: 10px;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.brandsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.openBrands {
+  max-height: 500px;
+  transition: max-height 0.6s ease-in;
+  margin-bottom: 5px;
+}
+
+.brandLink {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px 8px 30px;
+  text-decoration: none;
+  color: #555;
+  border-radius: 6px;
+  margin-bottom: 2px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 13px;
+}
+
+.brandLink:hover {
+  background-color: #f0f0f0;
+}
+
+.activeBrand {
+  background-color: #cce5ff;
+  color: #0056b3;
+  font-weight: 600;
+}
+
+.activeBrand:hover {
+  background-color: #b3d7ff;
 }
