@@ -11,7 +11,7 @@
           "brand": "KLIK",
           "title": "Освежитель воздуха - Апельсин",
           "volume": "400мл",
-          "image": "https://i.postimg.cc/NMvmLz3L/photo-2025-10-15-18-47-15.jpg"
+          "image": "https://vvs-shop.com/cdn/shop/files/Asap_Rocky_Grillz.webp?v=1739436668"
         },
         {
           "slug": "osvezhitel-antibak",
@@ -25,7 +25,7 @@
           "brand": "KLIK",
           "title": "Освежитель воздуха Fly - лимон",
           "volume": "300мл",
-          "image": "https://i.postimg.cc/CLLPCnKJ/bloger-dmitrij-kuplinov-perestanet-vypuskat-roliki-vo-vkontakte-1733745805634381280.jpg"
+          "image": "https://lastfm.freetls.fastly.net/i/u/ar0/aabdadb7a125a97cda58bdd558f877c9.jpg"
         }
       ]
     },
@@ -64,11 +64,18 @@
           "image": "https://i.postimg.cc/RZPSnqfL/Snimok-ekrana-2025-10-23-221202.png"
         },
         {
+          "slug": "KLIK-neytralizator-zapahov-laym",
+          "brand": "KLIK",
+          "title": "Нейтрализатор запахов - Лайм",
+          "volume": "400мл",
+          "image": "https://hips.hearstapps.com/hmg-prod/images/elm100125wlaaprocky-015-68cafe7a471fb.jpg?resize=980:*"
+        },
+        {
           "slug": "neytralizator-ag",
           "brand": "AG+",
           "title": "Нейтрализатор запахов с серебром",
           "volume": "200мл",
-          "image": "/images/products/ag.jpg"
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy2rhW18pSYchoki6JIV21P-4MaAlgaMvOPw&s"
         }
       ]
     }
