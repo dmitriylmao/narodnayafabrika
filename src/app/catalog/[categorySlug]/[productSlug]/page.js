@@ -58,49 +58,53 @@ export default async function ProductPage({ params }) {
     const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
     return (
-        <div className={styles.pageContainer}>
+        <main className={styles.mainWrapper}>
+            <div className={styles.pageContainer}>
 
-            <Breadcrumbs 
-                categoryName={categoryName} 
-                categorySlug={categorySlug} 
-                productName={baseProductName} 
-                productSlug={productSlug} 
-            />
+                <Breadcrumbs 
+                    categoryName={categoryName} 
+                    categorySlug={categorySlug} 
+                    productName={baseProductName} 
+                    productSlug={productSlug} 
+                />
 
-            <div className={styles.productContainer}>
-                <div className={styles.imageContainer}>
-                    <img
-                        src={imageUrl || 'https://placehold.co/400x400/f3f4f6/a3a3a3?text=Нет+Фото'}
-                        alt={baseProductName}
-                        className={styles.productImage}
-                    />
+                <div className={styles.productContainer}>
+
+                    <div className={styles.imageContainer}>
+                        <img
+                            src={imageUrl || 'https://placehold.co/400x400/f3f4f6/a3a3a3?text=Нет+Фото'}
+                            alt={baseProductName}
+                            className={styles.productImage}
+                        />
+                    </div>
+
+                    <div className={styles.infoContainer}>
+                        <h2 className={styles.brand}>{brandName}</h2>
+                        <h1 className={styles.title}>
+                            {baseProductName} 
+                        </h1>
+
+                        {descriptionHtml && (
+                                <div className={styles.descriptionContainer}>
+                                    <h3>Описание:</h3>
+                                    <div dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
+                                </div>
+                        )}
+
+                        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className={styles.whatsappButton}>
+                            Связаться
+                        </a>
+                    </div>
                 </div>
 
-                <div className={styles.infoContainer}>
-                    <h2 className={styles.brand}>{brandName}</h2>
-                    <h1 className={styles.title}>
-                        {baseProductName} 
-                    </h1>
-                    {packSize && <p className={styles.packSize}>{packSize}</p>}
+                
 
-                    <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className={styles.whatsappButton}>
-                        Связаться
-                    </a>
-                </div>
+                <BrandProducts 
+                    brandName={brandName} 
+                    relatedProducts={relatedProducts} 
+                />
+
             </div>
-
-            {descriptionHtml && (
-                <div className={styles.descriptionContainer}>
-                    <h3>Описание</h3>
-                    <div dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
-                </div>
-            )}
-
-            <BrandProducts 
-                brandName={brandName} 
-                relatedProducts={relatedProducts} 
-            />
-
-        </div>
+        </main>
     );
 }

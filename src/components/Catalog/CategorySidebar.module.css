@@ -1,9 +1,6 @@
 .sidebar {
   width: 280px;
   flex-shrink: 0;
-  /* Делаем сайдбар липким при скролле */
-  position: sticky;
-  top: 120px; /* Отступ от хедера */
   align-self: flex-start;
   display: flex;
   flex-direction: column;
@@ -11,22 +8,25 @@
 }
 
 .menuGroup {
-  background-color: #ffffff;
-  border-radius: 24px;
-  padding: 16px;
-  /* Мягкая тень */
+  background-color: var(--color-background-light);
+  border-radius: 30px;
+  padding: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-  border: 1px solid #f0f0f0;
+  border: 1px solid rgb(170, 170, 170);
 }
 
+/* Общий стиль заголовка (Категории / Бренды) */
 .groupTitle {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #999;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
+  margin-top:12px;
   padding-left: 12px;
   font-weight: 700;
+  user-select: none;
+  
 }
 
 .list {
@@ -38,56 +38,64 @@
   gap: 4px;
 }
 
-/* --- ССЫЛКИ КАТЕГОРИЙ --- */
+/* --- ССЫЛКИ КАТЕГОРИЙ (ИСПРАВЛЕНИЕ 1: УНИФИКАЦИЯ) --- */
 .link {
   display: flex;
-  align-items: center;
+  align-items: center; 
   padding: 10px 12px;
   text-decoration: none;
-  color: #1d1d1f;
-  border-radius: 16px;
+  color: var(--color-text-dark);
+  border-radius: 20px;
   transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   font-size: 15px;
   font-weight: 500;
+  line-height: 1.2; 
+  
+  min-height: 64px; 
+  box-sizing: border-box;
 }
 
 .link:hover {
-  background-color: #F5F5F7; /* Светло-серый фон при наведении */
-  transform: translateX(4px);
+  background-color: #e2ebff;
+  transform: translateX(5px);
+}
+
+.link::after{
+  content: none; 
 }
 
 .active {
   background-color: var(--color-primary);
-  color: #ffffff;
-  font-weight: 600;
+  color: var(--color-text-light) !important;
+  font-weight: 500;
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);
 }
 
 .active:hover {
-  background-color: var(--color-primary-hover); /* Чуть темнее синий */
-  transform: none; /* Активный не сдвигаем */
+  background-color: var(--color-primary-hover);
+  transform: none;
+  color: var(--color-text-light) !important;
 }
 
 .iconWrapper {
   width: 32px;
   height: 32px;
+  border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 8px;
   margin-right: 12px;
-  overflow: hidden;
+  flex-shrink: 0; 
 }
 
-.active .iconWrapper {
-  background-color: rgba(255,255,255,0.2); /* Полупрозрачный на синем фоне */
-}
 
 .icon {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  border-radius: 10px;
 }
 
 .activeDot {
@@ -96,28 +104,34 @@
   line-height: 0;
 }
 
-/* --- БЛОК БРЕНДОВ --- */
 .brandsHeader {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; 
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: opacity 0.4s ease;
+  
+  min-height: 44px; 
+  padding: 0 4px; 
 }
 
 .brandsHeader:hover {
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .brandsHeader .groupTitle {
-  margin-bottom: 0;
+  margin-bottom: 0; 
+  padding-left: 8px; 
+  margin-top: 0;
 }
 
 .arrow {
   font-size: 10px;
   color: #999;
-  margin-right: 10px;
+  margin-right: 8px;
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex; 
+  align-items: center;
 }
 
 .brandsOpen .arrow {
@@ -128,13 +142,13 @@
 .brandsCollapse {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: all 0.3s cubic-bezier(.8,-0.01,.28,.99);
   overflow: hidden;
 }
 
 .brandsCollapse.expanded {
+  padding-top: 8px;
   grid-template-rows: 1fr;
-  margin-top: 8px;
 }
 
 .brandsList {
@@ -149,12 +163,13 @@
 
 .brandLink {
   display: block;
-  padding: 8px 12px;
+  padding: 10px 12px;
   font-size: 14px;
   color: #555;
   text-decoration: none;
   border-radius: 12px;
   transition: all 0.2s ease;
+  
 }
 
 .brandLink:hover {
@@ -170,6 +185,6 @@
 
 @media (max-width: 1024px) {
   .sidebar {
-    display: none; /* На мобилке обычно скрывают или делают бургер */
+    display: none;
   }
 }

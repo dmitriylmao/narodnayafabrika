@@ -24,8 +24,8 @@ export default function Header() {
 
   const isWhiteBg = WHITE_BACKGROUND_PATHS.includes(pathname) || isCatalogPath;;
 
-  const LOGO_WIDTH = 120;
-  const LOGO_HEIGHT = 120;
+  const LOGO_WIDTH = 100;
+  const LOGO_HEIGHT = 100;
 
   return (
     <header className={`${styles.header} ${isWhiteBg ? styles.themeWhite : ''}`}>

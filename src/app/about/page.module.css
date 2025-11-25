@@ -90,8 +90,8 @@
 
 .infoLabel h3 {
   font-size: 20px;
-  color: var(--color-text-light-hover); 
-  font-weight: 400;
+  color:rgb(138, 138, 138); 
+  font-weight: 600;
   margin: 40px 0 0 0;
 }
 

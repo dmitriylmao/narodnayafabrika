@@ -1,23 +1,19 @@
 .breadcrumbs {
-    font-size: 14px;
-    margin-bottom: 16px;
+    font-size: 18px;
+    margin-bottom: 24px;
 }
 
 .link {
-    color: #3b82f6;
+    color: #888888;
     text-decoration: none;
 }
 
-.link:hover {
-    text-decoration: underline;
-}
-
 .current {
-    color: #111827;
+    color: var(--color-primary);
     font-weight: 500;
 }
 
 .separator {
     margin: 0 6px;
-    color: #6b7280;
+    color: #888888;
 }

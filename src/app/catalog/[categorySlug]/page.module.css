@@ -2,8 +2,8 @@
   background-color:var(--color-background-light);
   min-height: 100vh;
   width: 100%;
-  
 }
+
 
 .pageContainer {
     max-width: 1600px;
@@ -12,26 +12,25 @@
   padding: 0 24px;
   display: flex;
   flex-direction: column;
-  min-height: 600px;
-  background-color: rgb(255, 177, 177);
 }
 
 .header {
-    text-align: center;
+    text-align: start;
     margin-bottom: 32px;
-    background-color: bisque;
 }
 
 .heading {
-    font-size: 28px;
-    font-weight: 700;
-    color: #0f172a;
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1.1;
 }
 
 .description {
-    font-size: 16px;
-    color: #475569;
-    margin-top: 8px;
+    font-size: 18px;
+    line-height: 1;
+    color: #727272;
+    margin-top: 10px;
 }
 
 .error {
@@ -51,20 +50,17 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 24px;
-    background-color: blueviolet;
 }
 
 .mainContentWrapper {
     display: flex;
     flex-direction: row; 
     gap: 24px; 
-    background-color: brown;
 }
 
 .contentArea {
     flex-grow: 1; 
     min-width: 0; 
-    background-color: cadetblue;
 }
 
 .gridContainer {

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import styles from './CategorySidebar.module.css';
 
 export default function CategorySidebar({ categories, allBrands, activeCategorySlug, activeBrandSlug }) {
-  // Если активен бренд, меню брендов должно быть открыто по умолчанию
+  // Если выбран бренд, раскрываем список сразу
   const [isBrandsOpen, setIsBrandsOpen] = useState(!!activeBrandSlug);
 
   if (!categories || categories.length === 0) {
@@ -19,6 +19,8 @@ export default function CategorySidebar({ categories, allBrands, activeCategoryS
 
   return (
     <aside className={styles.sidebar}>
+      
+      {/* БЛОК КАТЕГОРИЙ */}
       <div className={styles.menuGroup}>
         <h3 className={styles.groupTitle}>Категории</h3>
         <ul className={styles.list}>
@@ -28,6 +30,7 @@ export default function CategorySidebar({ categories, allBrands, activeCategoryS
               <li key={category.slug}>
                 <Link 
                   href={`/catalog/${category.slug}`} 
+                  // Используем общий класс .link
                   className={`${styles.link} ${isActive ? styles.active : ''}`}
                 >
                   {category.image && (
@@ -41,7 +44,7 @@ export default function CategorySidebar({ categories, allBrands, activeCategoryS
                       />
                     </div>
                   )}
-                  <span className={styles.linkText}>{category.name}</span>
+                  <span>{category.name}</span>
                   {isActive && <span className={styles.activeDot}>•</span>}
                 </Link>
               </li>
@@ -50,6 +53,7 @@ export default function CategorySidebar({ categories, allBrands, activeCategoryS
         </ul>
       </div>
 
+      {/* БЛОК БРЕНДОВ */}
       {allBrands && allBrands.length > 0 && (
         <div className={styles.menuGroup}>
           <div
@@ -68,9 +72,14 @@ export default function CategorySidebar({ categories, allBrands, activeCategoryS
                   <li key={brand.slug}>
                     <Link 
                       href={`/catalog/brand/${brand.slug}`} 
-                      className={`${styles.brandLink} ${isBrandActive ? styles.activeBrand : ''}`}
+                      // ВАЖНО: Используем тот же класс .link, что и у категорий
+                      className={`${styles.link} ${isBrandActive ? styles.active : ''}`}
                     >
-                      {brand.name}
+                      {/* Если у брендов будут иконки, можно добавить сюда. 
+                          Пока просто текст, но стиль идентичный. */}
+                      <span>{brand.name}</span>
+                      
+                      {isBrandActive && <span className={styles.activeDot}>•</span>}
                     </Link>
                   </li>
                 );

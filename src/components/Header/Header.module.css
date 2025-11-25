@@ -19,6 +19,7 @@
   text-decoration: none;
   position: relative;
   line-height: 0;
+  padding: 24px 0;
 }
 
 .logo::after {
@@ -48,14 +49,14 @@
 }
 
 .navLink:hover {
-  color: var(--color-text-light-hover); 
+  color:rgb(204, 204, 204); 
 }
 .navLink::after {
   background-color: var(--color-text-light);
 }
 
 .navLink:hover::after {
-  background-color: var(--color-text-light-hover);
+  background-color:rgb(204, 204, 204); 
 }
 
 

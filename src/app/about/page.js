@@ -8,7 +8,6 @@ export default function AboutPage() {
         
         <h1 className={styles.pageTitle}>О нас</h1>
 
-        {/* Секция с большой картинкой и оверлеем */}
         <section className={styles.heroSection}>
           <div className={styles.imageWrapper}>
             <Image
@@ -18,7 +17,6 @@ export default function AboutPage() {
               className={styles.heroImage}
               priority
             />
-            {/* Затемнение поверх картинки для текста */}
             <div className={styles.heroOverlay}>
               <h2 className={styles.heroTitle}>ООО «НАРОДНАЯ ФАБРИКА»</h2>
               <p className={styles.heroText}>
@@ -33,7 +31,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Блок 1: Технологии */}
         <section className={styles.infoSection}>
           <div className={styles.infoGrid}>
             <div className={styles.infoLabel}>
@@ -59,10 +56,6 @@ export default function AboutPage() {
           
         </section>
 
-        {/* Разделитель */}
-        
-
-        {/* Блок 2: Качество */}
         <section className={styles.infoSection}>
           <div className={styles.infoGrid}>
             <div className={styles.infoLabel}>

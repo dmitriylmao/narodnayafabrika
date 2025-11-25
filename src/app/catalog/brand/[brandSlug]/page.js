@@ -44,39 +44,41 @@ export default async function BrandPage({ params }) {
   const allBrands = getAllBrands();
   
   return (
-    <div className={styles.pageContainer}>
-      <Breadcrumbs
-        brandName={brandName}
-        brandSlug={brandSlug}
-      />
-
-      <div className={styles.mainContentWrapper}>
-        <CategorySidebar
-          categories={allCategories}
-          allBrands={allBrands}
-          activeBrandSlug={brandSlug}
+    <main className={styles.mainWrapper}>
+      <div className={styles.pageContainer}>
+        <Breadcrumbs
+          brandName={brandName}
+          brandSlug={brandSlug}
         />
 
-        <main className={styles.contentArea}>
-          <header className={styles.header}>
-            <h1 className={styles.heading}>Продукция бренда {brandName}</h1>
-          </header>
+        <div className={styles.mainContentWrapper}>
+          <CategorySidebar
+            categories={allCategories}
+            allBrands={allBrands}
+            activeBrandSlug={brandSlug}
+          />
 
-          {products.length === 0 ? (
-            <p className={styles.emptyText}>У этого бренда пока нет товаров.</p>
-          ) : (
-            <div className={styles.gridContainer}>
-              {products.map(product => (
-                <ProductCard
-                  key={product.slug}
-                  product={product}
-                  categorySlug={product.categorySlug}
-                />
-              ))}
-            </div>
-          )}
-        </main>
+          <main className={styles.contentArea}>
+            <header className={styles.header}>
+              <h1 className={styles.heading}>Продукция бренда {brandName}</h1>
+            </header>
+
+            {products.length === 0 ? (
+              <p className={styles.emptyText}>У этого бренда пока нет товаров.</p>
+            ) : (
+              <div className={styles.gridContainer}>
+                {products.map(product => (
+                  <ProductCard
+                    key={product.slug}
+                    product={product}
+                    categorySlug={product.categorySlug}
+                  />
+                ))}
+              </div>
+            )}
+          </main>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
