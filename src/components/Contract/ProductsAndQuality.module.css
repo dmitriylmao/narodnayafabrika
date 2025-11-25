@@ -1,0 +1,163 @@
+/* --- ГЛОБАЛЬНЫЕ СТИЛИ КОМПОНЕНТА --- */
+.container {
+    max-width: 1300px;
+    margin: 80px auto;
+    padding: 0 40px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--color-dark, #1e1e1e);
+    overflow: hidden;
+}
+
+.heading {
+    font-size: 2.8em;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subHeading {
+    font-size: 1.2em;
+    color: var(--color-text-gray, #4a4a4a);
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+/* --- БЛОК ПРОДУКЦИИ (Стиль: чистые карточки) --- */
+
+.productBlock {
+    margin-bottom: 120px;
+}
+
+.categoriesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.categoryCard {
+    padding: 30px;
+    border-radius: 20px; /* Немного меньше, чем в TechBento, для вариации */
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    background-color: #fcfcfc;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.categoryCard:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary-blue, #0070c9);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.categoryTitle {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* --- НОВЫЙ БЛОК КОНТРОЛЯ КАЧЕСТВА (Стиль: Bento Grid) --- */
+
+.qualityBlock {
+    padding-top: 60px;
+}
+
+.qualityContentGrid {
+    display: grid;
+    /* 3 колонки для идеального размещения 3х карточек контроля и 1 ISO */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+/* 1. ISO CARD (Акцентный синий фон) */
+.isoCard {
+    grid-column: span 1;
+    background-color: var(--color-primary-blue, #0070c9);
+    color: #ffffff;
+    border-radius: 40px; /* Адаптация стиля TechBento */
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 250px;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.isoCard:hover {
+    transform: scale(1.03);
+}
+
+.isoText {
+    font-size: 1em;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.isoStandardBox {
+    font-size: 1.8em;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+}
+
+/* 2. Check Cards (Светлые карточки) */
+.checkCard {
+    grid-column: span 1;
+    background-color: #f5f5f7; /* Светло-серый Apple фон */
+    border-radius: 40px; /* Адаптация стиля TechBento */
+    padding: 30px;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.checkCard:hover {
+    transform: translateY(-5px); /* Легкое приподнимание */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.checkIcon {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    display: inline-block;
+    /* Анимация иконки при наведении */
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.checkCard:hover .checkIcon {
+    transform: rotate(5deg) scale(1.1);
+}
+
+.checkTitle {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--color-text-dark, #1e1e1e);
+    margin-bottom: 8px;
+}
+
+.checkDescription {
+    font-size: 1em;
+    color: var(--color-text-gray, #6e6e73);
+}
+
+/* --- АДАПТИВНОСТЬ --- */
+@media (max-width: 1024px) {
+    .qualityContentGrid {
+        grid-template-columns: 1fr 1fr; /* 2 колонки */
+    }
+    .isoCard { grid-column: span 2; } /* ISO занимает всю ширину */
+}
+
+@media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .heading { font-size: 2em; }
+    
+    .qualityContentGrid {
+        grid-template-columns: 1fr; /* 1 колонка */
+    }
+    .isoCard { grid-column: span 1; }
+    .checkCard { min-height: auto; }
+}

@@ -16,11 +16,11 @@ const raleway = Raleway({
 export default function RootLayout({ children }) {
   return (
     <html lang="ru" className={`${raleway.variable}`}>
-      <body>
+      <body id="root-body">
         <AuthContextProvider>
           <Header />
           <main>
-            {children} 
+            {children}
           </main>
           <Footer />
         </AuthContextProvider>

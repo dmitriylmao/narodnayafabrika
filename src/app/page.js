@@ -8,11 +8,10 @@ import NewsHomeSection from '@/components/News/NewsHomeSection';
 export default function HomePage() {
   return (
     <> 
-      <HeroSection /> 
-      
       <div className={styles.pageWrapper} id="main-content"> 
         <IntroSection />
         <ServiceBlocks />
+        <HeroSection/>
         <NewsHomeSection />
       </div>
     </>

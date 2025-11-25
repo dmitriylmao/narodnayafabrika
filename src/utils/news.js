@@ -9,10 +9,11 @@ import html from 'remark-html';
 const newsDirectory = path.join(process.cwd(), 'data', 'news');
 
 const getTeaser = (text) => {
-  const maxLength = 100;
+  //const maxLength = 100;
   const cleanText = text.replace(/<[^>]*>?/gm, '');
-  if (cleanText.length <= maxLength) return cleanText;
-  return cleanText.substring(0, maxLength) + '...';
+  return cleanText;
+  //if (cleanText.length <= maxLength) return cleanText;
+  //return cleanText.substring(0, maxLength) + '...';
 };
 
 export function getAllNewsSlugs() {

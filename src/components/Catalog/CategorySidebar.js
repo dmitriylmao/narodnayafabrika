@@ -6,7 +6,8 @@ import Image from 'next/image';
 import styles from './CategorySidebar.module.css';
 
 export default function CategorySidebar({ categories, allBrands, activeCategorySlug, activeBrandSlug }) {
-  const [isBrandsOpen, setIsBrandsOpen] = useState(false);
+  // Если активен бренд, меню брендов должно быть открыто по умолчанию
+  const [isBrandsOpen, setIsBrandsOpen] = useState(!!activeBrandSlug);
 
   if (!categories || categories.length === 0) {
     return null;
@@ -18,59 +19,66 @@ export default function CategorySidebar({ categories, allBrands, activeCategoryS
 
   return (
     <aside className={styles.sidebar}>
-      <ul className={styles.list}>
-        {categories.map(category => {
-          const key = category.slug;
-          const isActive = category.slug === activeCategorySlug;
-          const linkClassName = `${styles.link} ${isActive ? styles.active : ''}`;
+      <div className={styles.menuGroup}>
+        <h3 className={styles.groupTitle}>Категории</h3>
+        <ul className={styles.list}>
+          {categories.map(category => {
+            const isActive = category.slug === activeCategorySlug;
+            return (
+              <li key={category.slug}>
+                <Link 
+                  href={`/catalog/${category.slug}`} 
+                  className={`${styles.link} ${isActive ? styles.active : ''}`}
+                >
+                  {category.image && (
+                    <div className={styles.iconWrapper}>
+                      <Image
+                        src={category.image}
+                        alt={category.name}
+                        width={24}
+                        height={24}
+                        className={styles.icon}
+                      />
+                    </div>
+                  )}
+                  <span className={styles.linkText}>{category.name}</span>
+                  {isActive && <span className={styles.activeDot}>•</span>}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
 
-          return (
-            <li key={key}>
-              <Link href={`/catalog/${category.slug}`} className={linkClassName}>
-                {category.image ? (
-                  <Image
-                    src={category.image}
-                    alt={category.name}
-                    width={30}
-                    height={30}
-                    className={styles.icon}
-                  />
-                ) : (
-                  <div className={styles.iconPlaceholder}></div>
-                )}
-                <span>{category.name}</span>
-              </Link>
-            </li>
-          );
-        })}
+      {allBrands && allBrands.length > 0 && (
+        <div className={styles.menuGroup}>
+          <div
+            className={`${styles.brandsHeader} ${isBrandsOpen ? styles.brandsOpen : ''}`}
+            onClick={toggleBrands}
+          >
+            <h3 className={styles.groupTitle}>Бренды</h3>
+            <span className={styles.arrow}>▼</span>
+          </div>
 
-        {allBrands && allBrands.length > 0 && (
-          <li className={styles.brandsWrapper}>
-            <div
-              className={`${styles.link} ${styles.brandsToggle} ${isBrandsOpen ? styles.brandsActive : ''}`}
-              onClick={toggleBrands}
-            >
-              <span>Бренды</span>
-              <span className={`${styles.arrow} ${isBrandsOpen ? styles.open : ''}`}>&#9660;</span>
-            </div>
-
-            <ul className={`${styles.brandsList} ${isBrandsOpen ? styles.openBrands : ''}`}>
+          <div className={`${styles.brandsCollapse} ${isBrandsOpen ? styles.expanded : ''}`}>
+            <ul className={styles.brandsList}>
               {allBrands.map(brand => {
                 const isBrandActive = brand.slug === activeBrandSlug;
-                const brandLinkClassName = `${styles.brandLink} ${isBrandActive ? styles.activeBrand : ''}`;
-
                 return (
                   <li key={brand.slug}>
-                    <Link href={`/catalog/brand/${brand.slug}`} className={brandLinkClassName}>
+                    <Link 
+                      href={`/catalog/brand/${brand.slug}`} 
+                      className={`${styles.brandLink} ${isBrandActive ? styles.activeBrand : ''}`}
+                    >
                       {brand.name}
                     </Link>
                   </li>
                 );
               })}
             </ul>
-          </li>
-        )}
-      </ul>
+          </div>
+        </div>
+      )}
     </aside>
   );
 }

@@ -10,7 +10,7 @@ export default async function NewsPage() {
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.pageTitle}>Актуальные Новости</h1>
+            <h1 className={styles.pageTitle}>Новости</h1>
 
             {news.length === 0 ? (
                 <p className={styles.noNews}>

@@ -1,9 +1,7 @@
-// src/components/News/NewsHomeSection.jsx (Теперь Server Component)
-
-import NewsCard from './NewsCard';
 import Link from 'next/link';
 import styles from './NewsHomeSection.module.css';
 import { getAllNewsSlugs } from '@/utils/news';
+import HomeNewsCard from './HomeNewsCard'; 
 
 const generateMarqueeContent = (word, count) => {
   const words = Array(count).fill(word + ' ');
@@ -19,10 +17,10 @@ const generateMarqueeContent = (word, count) => {
 
 export default async function NewsHomeSection() {
   const allNews = getAllNewsSlugs();
-  const news = allNews.slice(0, 3);
+  const news = allNews.slice(0, 3); 
 
   if (news.length === 0) {
-    return <section className={styles.section} style={{ minHeight: '400px' }}></section>;
+    return null;
   }
 
   return (
@@ -33,14 +31,21 @@ export default async function NewsHomeSection() {
         </div>
       </div>
 
-      <div className={styles.cardsContainer}>
-        {news.map(item => (
-          <NewsCard key={item.slug} newsItem={item} />
-        ))}
+      <div className={styles.container}>
+        <div className={styles.grid}>
+          
+          {news.map(item => (
+            <HomeNewsCard key={item.slug} newsItem={item} />
+          ))}
 
-        <Link href="/news" className={styles.moreLinkBlock}>
-          <p className={styles.moreLinkText}>К разделу новостей</p>
-        </Link>
+          <Link href="/news" className={styles.linkBlock}>
+             <span className={styles.linkText}>
+               К разделу<br />новостей
+             </span>
+             <span className={styles.arrow}>→</span>
+          </Link>
+
+        </div>
       </div>
     </section>
   );

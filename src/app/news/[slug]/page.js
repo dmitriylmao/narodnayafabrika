@@ -1,10 +1,10 @@
 // src/app/news/[slug]/page.js
 
 import { getAllNewsSlugs, getNewsData } from '@/utils/news';
-import Image from 'next/image';
+import Image3D from '@/components/News/Image3D';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import styles from './NewsDetailPage.module.css'; 
+import styles from './NewsDetailPage.module.css';
 
 export async function generateStaticParams() {
   const newsItems = getAllNewsSlugs();
@@ -31,32 +31,33 @@ export default async function NewsDetailPage({ params: paramsPromise }) {
 
   return (
       <div className={styles.container}>
-          <header className={styles.header}>
-              <h1 className={styles.title}>{postData.title}</h1>
-              <p className={styles.date}>Опубликовано: {postData.createdAt}</p>
-          </header>
-
-          <div className={styles.imageWrapper}>
-              <Image
-                  src={imgSrc} 
-                  alt={postData.title}
-                  fill 
-                  sizes="100vw"
-                  className={styles.image}
-                  unoptimized={isLocalFallback} 
-              />
-          </div>
+        <Link href="/news" className={styles.backLink}>
+            <span className={styles.backArrow}>←</span> Все новости
+        </Link>
           
-          <main className={styles.content}>
-              <div 
-                  className={styles.text} 
-                  dangerouslySetInnerHTML={{ __html: postData.contentHtml }} 
-              />
-          </main>
+        <div className={styles.contentContainer}>
+            <div className={styles.leftContainer}>
 
-          <Link href="/news" className={styles.backLink}>
-              ← Все новости
-          </Link>
-      </div>
+                {/* 🔥 Вот здесь вставили анимацию */}
+                <Image3D
+                  src={imgSrc}
+                  alt={postData.title}
+                  isLocalFallback={isLocalFallback}
+                />
+
+                <p className={styles.date}>Опубликовано: {postData.createdAt}</p>
+            </div>
+
+            <div className={styles.rightContainer}>
+                <header className={styles.header}>
+                    <h1 className={styles.title}>{postData.title}</h1>
+                </header>
+                <div 
+                    className={styles.text} 
+                    dangerouslySetInnerHTML={{ __html: postData.contentHtml }} 
+                />
+            </div>
+        </div>
+    </div>
   );
 }

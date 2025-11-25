@@ -1,3 +1,5 @@
+// src/app/vacancies/[slug]/page.js (Исправлено)
+
 import { notFound } from 'next/navigation';
 import { getAllVacanciesSlugs, getVacancyData } from '@/utils/vacancies';
 import styles from './VacancyDetailPage.module.css';
@@ -43,63 +45,77 @@ export default async function VacancyDetailPage({ params: paramsPromise }) {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
-    <div className={styles.container}>
-      <Link href="/vacancies" className={styles.backLink}>
-        ← Все вакансии
-      </Link>
+    <div className={styles.wrapper}>
+        <div className={styles.topSection}>
+            <div className={styles.contentContainer}>
+                
+                <Link href="/vacancies" className={styles.backLink}>
+                    <span className={styles.backArrow}>←</span> Все вакансии
+                </Link>
 
-      <article className={styles.vacancy}>
-        <h1 className={styles.title}>{vacancy.title}</h1>
+                <div className={styles.mainGrid}>
+                    
+                    <div className={styles.headerColumn}>
+                        <h1 className={styles.title}>
+                            {vacancy.title}
+                        </h1>
+                        <p className={styles.salary}>
+                            {vacancy.salary}
+                        </p>
+                        <p className={styles.location}>
+                            {vacancy.location}
+                        </p>
+                    </div>
 
-        <div className={styles.headerInfo}>
-          <span className={styles.salary}>💰 {vacancy.salary}</span>
-          <span className={styles.location}>📍 {vacancy.location}</span>
+                    <article className={styles.articleColumn}>
+                        
+                        <section className={styles.section}>
+                            <h2 className={styles.sectionTitle}>Основные Обязанности</h2>
+                            <div
+                                className={styles.content}
+                                dangerouslySetInnerHTML={{ __html: vacancy.dutiesHtml }}
+                            />
+                        </section>
+
+                        <section className={styles.section}>
+                            <h2 className={styles.sectionTitle}>Требования к Кандидату</h2>
+                            <div
+                                className={styles.content}
+                                dangerouslySetInnerHTML={{ __html: vacancy.requirementsHtml }}
+                            />
+                        </section>
+
+                        <section className={styles.section}>
+                            <h2 className={styles.sectionTitle}>Условия Работы</h2>
+                            <div
+                                className={styles.content}
+                                dangerouslySetInnerHTML={{ __html: vacancy.conditionsHtml }}
+                            />
+                        </section>
+
+                        {/* Кнопка WhatsApp */}
+                        <div className={styles.contactFooter}>
+                            <a
+                                href={whatsappUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.whatsappButton}
+                            >
+                                Связаться через WhatsApp
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </div>
-
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Основные Обязанности</h2>
-          <div
-            className={styles.content}
-            dangerouslySetInnerHTML={{ __html: vacancy.dutiesHtml }}
-          />
-        </section>
-
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Требования к Кандидату</h2>
-          <div
-            className={styles.content}
-            dangerouslySetInnerHTML={{ __html: vacancy.requirementsHtml }}
-          />
-        </section>
-
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Условия Работы</h2>
-          <div
-            className={styles.content}
-            dangerouslySetInnerHTML={{ __html: vacancy.conditionsHtml }}
-          />
-        </section>
-
-        <div className={styles.contactFooter}>
-          <h3 className={styles.contactTitle}>Заинтересованы?</h3>
-          <p className={styles.contactText}>
-            Нажмите кнопку ниже, чтобы связаться с нашим HR-отделом
-            через WhatsApp и задать вопросы по вакансии.
-          </p>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.whatsappButton}
-          >
-            Связаться через WhatsApp
-          </a>
-        </div>
-
-        <p className={styles.dateInfo}>
-          Опубликовано: {vacancy.createdAt}
-        </p>
-      </article>
+        
+        {/* <div className={styles.footerInfo}>
+            <div className={styles.contentContainer}>
+                <p className={styles.dateInfo}>
+                    Опубликовано: {vacancy.createdAt}
+                </p>
+            </div>
+        </div> */}
     </div>
   );
 }

@@ -1,80 +1,42 @@
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-    min-height: 80vh;
-    margin-top: 120px;
+
+.contentContainer {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px 24px 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .pageTitle {
-    color: var(--color-primary, #0070f3);
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-    border-bottom: 2px solid var(--color-light-border, #eee);
-    padding-bottom: 10px;
+  color: var(--color-text-light);
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 0.8;
+  margin-bottom: 40px;
 }
 
-.subtitle {
-    font-size: 1.1rem;
-    color: var(--color-text-secondary, #555);
-    margin-bottom: 30px;
-}
-
-/* Сетка для карточек (ИЗМЕНЕНО: теперь вертикальный список) */
 .grid {
-    display: flex;
-    flex-direction: column; /* Элементы располагаются вертикально */
-    gap: 15px; /* Уменьшаем отступ для более плотного списка */
-    margin-bottom: 50px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
 }
 
-/* Состояние, когда вакансий нет */
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 .emptyState {
-    background: #fff;
-    border: 1px dashed var(--color-border, #ccc);
+    background-color: transparent;
     padding: 40px;
     text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-radius: 30px;
 }
 
 .emptyState p {
-    margin: 5px 0;
-    color: var(--color-text-secondary, #666);
-}
-
-/* Секция для контактов */
-.contactSection {
-    margin-top: 40px;
-    padding: 30px;
-    background-color: var(--color-background-light, #f9f9f9);
-    border-radius: 10px;
-    text-align: center;
-}
-
-.contactTitle {
-    color: var(--color-primary, #0070f3);
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-.contactText {
-    margin-bottom: 20px;
-    color: var(--color-text-primary, #333);
-}
-
-.contactButton {
-    display: inline-block;
-    padding: 10px 25px;
-    background-color: var(--color-primary, #0070f3);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s;
-}
-
-.contactButton:hover {
-    background-color: var(--color-primary-dark, #005bb5);
+    font-size: 24px;
+    color: var(--color-text-light);
 }

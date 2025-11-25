@@ -1,0 +1,240 @@
+.section {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 24px;
+  background-color: rgb(255, 255, 255);
+}
+
+.title {
+  font-size: 44px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--color-text-dark);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 300px 380px; /* Высота 1-го и 2-го ряда */
+  gap: 24px;
+}
+
+.cardMain, .cardPdf, .cardPrint, .cardShape, .cardCoatings {
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+  background-color: #0f0fe0; 
+  cursor: default;
+}
+
+.cardMain:hover, .cardPdf:hover, .cardPrint:hover, .cardShape:hover, .cardCoatings:hover {
+  transform: scale(1.02); 
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  z-index: 10;
+}
+
+.cardMain {
+  grid-column: span 2; 
+  grid-row: span 2;    
+  background-color: #000;
+  color: var( --color-text-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px 40px;
+}
+
+.bgImage {
+  position: absolute; inset: 0; z-index: 1;
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.00,0.63,0.28,1.00);
+}
+
+.cardMain:hover .img { transform: scale(1.15); }
+
+.darkOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgb(0, 0, 0), transparent);
+}
+
+.cardContent {
+  position: relative; z-index: 2;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 12px; font-weight: 400; text-transform: uppercase;
+  margin-bottom: 8px; padding-left: 8px;
+}
+
+.cardContent h3 {
+  font-size: 100px; font-weight: 700; margin-bottom: 12px; line-height: 1;
+}
+
+.revealText {
+  font-size: 20px; line-height: 1.1; opacity: 0.1;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.00,0.63,0.28,1.00), opacity 0.3s ease;
+}
+
+.cardMain:hover .revealText,
+.cardShape:hover .revealText {
+  max-height: 100px; opacity: 1; margin-top: 10px;
+}
+
+.cardPdf {
+  grid-column: span 1;
+  background-color: var(--color-background-dark); 
+  color: var(--color-text-light);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer !important;
+}
+
+.pdfContent {
+  position: relative; z-index: 2; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+}
+
+.iconBox {
+  width: 50px; height: 50px; border-radius: 50%;
+  background: var(--color-primary);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.cardPdf:hover .iconBox {
+  background: #fff; color: #000; transform: translateY(8px);
+}
+
+.cardPdf h3 { font-size: 20px; line-height: 1.2;font-weight: 500; text-decoration: none; }
+
+.cardPrint {
+  grid-column: span 1;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  padding: 30px; text-align: center;
+  background: var(--color-background-light);
+  border: solid 1px #d6d6d6;
+}
+
+.cardPrint h3 { font-size: 20px; line-height: 1.2;font-weight: 600; text-decoration: none; margin-bottom: 12px; }
+.cardPrint p { font-size: 16px; line-height: 1.2;font-weight: 400; text-decoration: none; }
+
+.defaultState {
+  transition: opacity 0.3s ease;
+}
+
+.cardPrint:hover .defaultState {
+  opacity: 0; display: none; 
+}
+
+.hoverState {
+  display: none;
+  flex-direction: column; align-items: center; gap: 16px;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.cardPrint:hover .hoverState {
+  display: flex;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.paletteGrid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+}
+
+.colorDot {
+  width: 24px; height: 24px; border-radius: 50%;
+  transform: scale(0);
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+@keyframes popIn { to { transform: scale(1); } }
+
+.hoverText { font-size: 16px; color: #585858; line-height: 1.2; }
+
+/* --- 4. SHAPE CARD --- */
+.cardShape {
+  grid-column: span 1;
+  background-color: #ffffff;
+  padding: 28px 40px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  border: solid 1px #d6d6d6;
+}
+
+.shapeVisual {
+  flex-grow: 1; display: flex; align-items: center; justify-content: center;
+}
+
+.canShape {
+  width: 60px; height: 120px;
+  background: linear-gradient(135deg, #000000, #f5f5f7);
+  border: 1px solid #d1d1d1;
+  border-radius: 30px 30px 10px 10px; 
+  transition: border-radius 0.5s ease, transform 0.5s ease;
+  box-shadow: inset 5px 5px 15px rgba(255,255,255,0.8), 10px 10px 20px rgba(0,0,0,0.05);
+}
+
+.cardShape:hover .canShape {
+  border-radius: 10px 10px 30px 30px; 
+  transform: rotate(10deg) scale(1.1);
+  background: linear-gradient(135deg, var(--color-primary), #003670);
+  border-color: transparent;
+}
+
+.cardContentBottom h3 { font-size: 24px;font-weight: 700; margin-bottom: 5px; }
+
+/* --- 5. COATINGS CARD --- */
+.cardCoatings {
+  grid-column: span 1;
+  background-color: var(--color-primary);
+  color: var( --color-text-light);
+  padding: 28px 24px;
+  display: flex; align-items: center;
+}
+.typesPOKRITIE{
+  font-size: 36px;
+}
+.coatingsList {
+  display: flex; flex-direction: column; gap: 20px; margin-top: 20px;
+}
+
+.coatingItem span {
+  font-size: 12px;font-weight: 500; text-transform: uppercase; opacity: 0.7; letter-spacing: 1px;
+}
+
+.coatingItem p {
+  font-size: 20px; font-weight: 500; margin-top: 10px;
+}
+
+.divider {
+  height: 1px; width: 100%; background: rgba(255, 255, 255, 0.384);
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: auto;
+  }
+  .cardMain { grid-column: span 2; height: 450px; }
+  .cardPdf, .cardPrint, .cardShape, .cardCoatings { grid-column: span 1; height: 300px; }
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; } 
+  .cardMain { grid-column: span 1; height: 400px; }
+  .cardPdf, .cardPrint, .cardShape, .cardCoatings { grid-column: span 1; height: 280px; }
+  
+  .title { font-size: 36px; }
+}

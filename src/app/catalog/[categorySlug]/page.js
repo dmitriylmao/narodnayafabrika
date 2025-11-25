@@ -45,41 +45,43 @@ export default async function CategoryPage({ params }) {
   const products = categoryData.products || [];
 
   return (
-    <div className={styles.pageContainer}>
-      <Breadcrumbs
-        categoryName={categoryData.name}
-        categorySlug={categoryData.slug}
-      />
-
-      <div className={styles.mainContentWrapper}>
-
-        <CategorySidebar
-          categories={allCategories}
-          allBrands={allBrands}
-          activeCategorySlug={categorySlug}
+    <main className={styles.mainWrapper}>
+      <div className={styles.pageContainer}>
+        <Breadcrumbs
+          categoryName={categoryData.name}
+          categorySlug={categoryData.slug}
         />
 
-        <main className={styles.contentArea}>
-          <header className={styles.header}>
-            <h1 className={styles.heading}>{categoryData.name}</h1>
-            {categoryData.description && <p className={styles.description}>{categoryData.description}</p>}
-          </header>
+        <div className={styles.mainContentWrapper}>
 
-          {products.length === 0 ? (
-            <p className={styles.emptyText}>В этой категории пока нет товаров.</p>
-          ) : (
-            <div className={styles.gridContainer}>
-              {products.map(product => (
-                <ProductCard
-                  key={product.slug}
-                  product={product}
-                  categorySlug={categoryData.slug}
-                />
-              ))}
-            </div>
-          )}
-        </main>
+          <CategorySidebar
+            categories={allCategories}
+            allBrands={allBrands}
+            activeCategorySlug={categorySlug}
+          />
+
+          <main className={styles.contentArea}>
+            <header className={styles.header}>
+              <h1 className={styles.heading}>{categoryData.name}</h1>
+              {categoryData.description && <p className={styles.description}>{categoryData.description}</p>}
+            </header>
+
+            {products.length === 0 ? (
+              <p className={styles.emptyText}>В этой категории пока нет товаров.</p>
+            ) : (
+              <div className={styles.gridContainer}>
+                {products.map(product => (
+                  <ProductCard
+                    key={product.slug}
+                    product={product}
+                    categorySlug={categoryData.slug}
+                  />
+                ))}
+              </div>
+            )}
+          </main>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }

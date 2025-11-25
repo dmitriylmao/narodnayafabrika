@@ -1,134 +1,143 @@
-
 .footer {
-  background-color: var(--color-background-dark);
-  color: var(--color-text-light);
-  padding: var(--spacing-lg) 0 var(--spacing-md);
-  font-size: 18px;
-  font-weight: 600;
+  background-color: black;
+  padding: 40px 0; 
 }
 
 .container {
   max-width: 1600px;
+  width: 100%;
   margin: 0 auto;
-  padding: 0 var(--spacing-lg);
-}
-
-.topRow {
-  display: flex;
+  padding: 0 24px;
+  
+  display: flex; 
   justify-content: space-between;
-  gap: var(--spacing-lg);
-  padding-bottom: var(--spacing-xl);
-  border-bottom: 1px solid var(--color-background-gray);
+  gap: 40px; 
+  min-height: 360px; 
 }
 
-.navSection, 
-.contactSection, 
-.policySection {
-  flex: 1; 
-  min-width: 150px;
-}
-
-.policySection{
+.leftSide {
+  width: 50%;
   display: flex;
-  align-items: center;      
-  justify-content: flex-end;
-  padding: 0; 
+  flex-direction: column;
+  justify-content: space-between; 
 }
 
-.navTitle {
+.infoRow {
+  display: flex;
+}
+
+.navColumn{
+  width: 50%;
+}
+
+.mapSide {
+  width: 50%;
+  min-height: 300px;
+  display: flex;
+}
+
+.mapWrapper {
+  width: 100%;
+  height: auto; 
+  min-height: 100%;
+  border-radius: 50px;
+  overflow: hidden;
+  border: 2px solid var(--color-primary);
+  background-color: #111;
+  position: relative;
+}
+
+.mapFrame {
+  border: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  
+  /* invert(1) - делает темную тему
+     grayscale(1) - делает черно-белым (убирает оранжевый и зеленый шум)
+     brightness(0.6) - затемняет, чтобы было глубоко
+     sepia(1) + hue-rotate(180deg) + saturate(3) - тонирует в глубокий синий
+  */
+  filter: invert(100%) grayscale(100%) brightness(1) sepia(100%) hue-rotate(180deg) saturate(300%) contrast(1.1);
+  transition: filter 0.3s ease;
+}
+
+.title {
+  font-size: 32px;
   font-weight: 700;
-  font-size: 30px;
-  margin-bottom: var(--spacing-lg);
   color: var(--color-primary);
-}
-
-.navList {
-  list-style: none;
-  padding: 0;
-}
-
-.navList li {
-  margin-bottom: var(--spacing-sm);
-}
-
-.navLink {
-  color: var(--color-text-light);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.navLink:hover {
-  color: var(--color-primary);
-}
-
-.contactItem {
-  margin-bottom: var(--spacing-sm);
-}
-
-.contactText {
-  margin: 0;
-}
-
-.policyLink {
-  display: inline-flex;
-  align-items: center; 
-  justify-content: center;
+  margin-bottom: 36px;
   line-height: 1;
-  color: var(--color-text-light);
+}
+
+.list {
+  list-style: none;
+}
+
+.link{
+  color: var( --color-text-light);
   text-decoration: none;
+  font-size:22px;
   font-weight: 500;
-  transition: color 0.3s ease;
-  padding: 1px 0px;
+  transition: color 0.2s ease;
+  line-height: 1.5;
+}
+
+.contactLink, .address {
+  color: var( --color-text-light);
+  text-decoration: none;
+  font-size:22px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  line-height: 1.1;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.link:hover, .contactLink:hover {
+  color: var(--color-primary);
+}
+
+.bottomArea {
+  width: 100%;
+  margin-top: auto; 
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 40px;
+}
+
+.bottomContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0px;
+}
+
+.copyright{
+  width: 50%;
+  color: var(--color-text-light);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+}
+.policyLink {
+  color: var(--color-text-light);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
 .policyLink:hover {
   color: var(--color-primary);
-}
-
-.bottomRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: var(--spacing-md);
-}
-
-.copyright {
-  font-size: 14px;
-  margin: 0;
-}
-
-.paymentIcons span {
-  margin-left: var(--spacing-md);
-  font-size: 0.7rem;
-  padding: 3px 6px;
-  border: 1px solid var(--color-background-gray);
-  border-radius: 2px;
-}
-
-.adminKeyLink {
-    margin-left: auto;
-    display: flex; 
-    align-items: center;
-     text-decoration: none !important; 
-}
-
-.adminKeyLink::after {
-    content: none !important; 
-}
-
-
-.adminKeyIcon {
-    width: 16px; 
-    height: 16px;
-    filter: invert(100%); 
-    
-    opacity: 0.5; 
-    transition: all 0.3s ease;
-}
-
-.adminKeyLink:hover .adminKeyIcon {
-    opacity: 1; 
-    
-     filter: invert(47%) sepia(80%) saturate(2258%) hue-rotate(198deg) brightness(97%) contrast(105%); 
-    
 }

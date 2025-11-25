@@ -1,6 +1,138 @@
 
-.pageWrapper {
-  max-width: 1600px; 
-  margin: 160px auto 0; 
-  background-color: greenyellow;
+.contentContainer {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px 24px 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.pageTitle {
+  color: var(--color-text-light);
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 0.8;
+  margin-bottom: 40px;
+}
+
+.mainGrid {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--color-background-light);
+  border-radius: 50px;
+  position: relative;
+  margin-bottom: 0px; 
+}
+
+.contactInfoColumn {
+  padding: 30px;
+  flex: 0 0 50%;
+  background-color: var(--color-background-light);
+  border-radius: 50px;
+  color: var(--color-text-dark);
+}
+
+.mapColumn {
+  flex: 0 0 50%;
+  overflow: hidden;
+  border-radius: 50px;
+  background-color: cornflowerblue;
+  display: flex;
+  min-height: 500px;
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  flex: 1;
+}
+
+.companyTitle {
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: var(--spacing-lg);
+}
+
+.contactGroup {
+  margin-top: 40px;
+}
+
+.contactLabel {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.contactValue,
+.contactValueLink {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: none;
+  position: static;
+}
+
+.contactValueLink:after {
+  content: none;
+}
+
+.contactValueLink:hover {
+  color: var(--color-primary-hover);
+}
+
+.socialIcons {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+  width: fit-content;
+}
+
+.iconLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: static;
+}
+
+.iconLink:after {
+  content: none;
+}
+
+.icon {
+  display: block;
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-text-dark);
+  transition: background-color 0.3s;
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+}
+
+.iconLink:hover .icon {
+  background-color: var(--color-primary);
+}
+
+.iconWhatsapp {
+  mask-image: url(/icons/phone.svg);
+  -webkit-mask-image: url(/icons/phone.svg);
+}
+
+.iconEmail {
+  mask-image: url(/icons/email.svg);
+  -webkit-mask-image: url(/icons/email.svg);
+}
+
+.iconTelegram {
+  mask-image: url(/icons/telegram.svg);
+  -webkit-mask-image: url(/icons/telegram.svg);
 }

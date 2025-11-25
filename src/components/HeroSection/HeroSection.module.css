@@ -1,31 +1,51 @@
-
-.hero {
-  height: 100vh; 
+.wrapper {
+  max-width: 1600px;
   width: 100%;
-  position: relative; 
-  overflow: hidden;
-  display: block; 
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
 }
 
-.videoContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
+.container {
+  max-width: calc(1600px - 48px);
   width: 100%;
-  height: 100%;
-  z-index: 1; 
+  height: 500px; 
+  
+  position: relative;
+  overflow: hidden; 
+  
+  border-radius: 50px; 
+  border: 2px solid var(--color-primary); 
+  
+  transform: translateZ(0); 
+  background-color: #000; 
 }
 
 .video {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  width: 150%; 
+  height: 200%; 
+  
+  
+  top: -20%; /* (250% / 2) - (100% / 2) = 125% - 50% = 75%  <- (для центра) */
+  left: -27%; /* (150% / 2) - (100% / 2) = 75% - 50% = 25% <- (для центра) */
+  
   object-fit: cover; 
+  
+  will-change: transform; 
+  pointer-events: none; 
 }
 
-.scrollButtonWrapper {
-  position: absolute;
-  bottom: var(--spacing-lg);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
+@media (max-width: 768px) {
+  .container {
+    height: 400px; 
+    border-radius: 30px;
+  }
+  .video {
+    width: 200%; 
+    height: 300%; 
+    top: -100%; /* (300/2) - (100/2) = 150 - 50 = 100 */
+    left: -50%; /* (200/2) - (100/2) = 100 - 50 = 50 */
+  }
 }

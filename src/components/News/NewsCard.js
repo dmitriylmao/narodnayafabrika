@@ -1,4 +1,3 @@
-// src/components/News/NewsCard.js
 'use client';
 
 import React, { useState } from 'react';
@@ -25,15 +24,14 @@ export default function NewsCard({ newsItem }) {
       </div>
 
       <div className={styles.content}>
-        <p className={styles.date}>{newsItem.createdAt}</p>
-
         <h3 className={styles.title}>{newsItem.title}</h3>
-
         <p className={styles.text}>{newsItem.teaser}</p>
-
-        <span className={styles.readMore}>
-          Читать полностью →
-        </span>
+        <div className={styles.downContent}>
+          <span className={styles.readMore}>
+            Читать полностью
+          </span>
+          <p className={styles.date}>{newsItem.createdAt}</p>
+        </div>
       </div>
     </Link>
   );

@@ -1,4 +1,3 @@
-
 'use client'; 
 
 import { useState } from 'react';
@@ -9,7 +8,7 @@ const blocksData = [
   {
     title: 'Собственная продукция',
     text: 'Мы производим аэрозольную продукцию под брендом «Народная фабрика» — косметические, бытовые и технические средства. В основе — надёжное сырьё, современное оборудование и контроль качества на каждом этапе.',
-    link: '/products',
+    link: '/catalog',
     buttonText: 'Подробнее',
   },
   {
@@ -21,40 +20,48 @@ const blocksData = [
 ];
 
 export default function ServiceBlocks() {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className={styles.services}>
-      
-      {blocksData.map((block, index) => {
-        const isActive = activeIndex === index;
+    <section className={styles.wrapper}>
+      <div className={styles.container}>
         
-        const alignmentClass = index === 1 ? styles.alignRight : '';
-        
-        return (
-          <div
-            key={index}
-            className={`${styles.block} ${isActive ? styles.activeBlock : ''} ${alignmentClass}`}
-            onMouseEnter={() => setActiveIndex(index)}
-          >
-            <h3 className={styles.title}>
-              {block.title}
-            </h3>
-            
-            <p className={styles.text}>
-              {block.text}
-            </p>
-            
-            <div className={`${styles.buttonWrapper} ${isActive ? styles.showButton : styles.hideButton}`}>
-              <Link href={block.link} className={styles.serviceButton}>
-                {block.buttonText}
-              </Link>
+        <div 
+          className={styles.slidingPanel} 
+          style={{ transform: `translateX(${activeIndex * 100}%)` }}
+        />
+
+        {blocksData.map((block, index) => {
+          const isHovered = activeIndex === index;
+          
+          return (
+            <div
+              key={index}
+              className={styles.block}
+              onMouseEnter={() => setActiveIndex(index)}
+            >
+              <div className={`${styles.content} ${index === 1 ? styles.alignRight : ''}`}>
+                <h3 className={`${styles.title} ${isHovered ? styles.textDark : styles.textLight}`}>
+                  {block.title}
+                </h3>
+                
+                <p className={`${styles.text} ${isHovered ? styles.textDark : styles.textLight}`}>
+                  {block.text}
+                </p>
+                
+                <div className={styles.buttonWrapper}>
+                  <Link 
+                    href={block.link} 
+                    className={isHovered ? styles.btnBlue : styles.btnWhite}
+                  >
+                    {block.buttonText}
+                  </Link>
+                </div>
+              </div>
             </div>
-            
-          </div>
-        );
-      })}
-      
+          );
+        })}
+      </div>
     </section>
   );
 }

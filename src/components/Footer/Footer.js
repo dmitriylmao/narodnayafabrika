@@ -1,94 +1,85 @@
-
 import Link from 'next/link';
 import styles from './Footer.module.css';
 
-const aboutLinks = [
-  { href: '/about', label: 'О компании' },
-  { href: '/delivery', label: 'Условия доставки', external: false }, 
-  { href: '/payments', label: 'Условия оплаты', external: false }, 
+const navLinks = [
+  { href: '/about', label: 'О нас' },
+  { href: '/catalog', label: 'Каталог' },
+  { href: '/contract', label: 'Контрактное производство' },
+  { href: '/news', label: 'Новости' },
+  { href: '/vacancies', label: 'Вакансии' },
 ];
-
-const contactInfo = [
-  { type: 'phone', value: '+7 (383) 300-23-00' },
-  { type: 'email', value: 'sales@narodfabrika.ru' },
-  { type: 'address', value: 'г. Аэрозольск, ул. Заводская, 1' },
-];
-
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  
+  const MAP_URL = "https://yandex.ru/map-widget/v1/?um=constructor%3A92abc416a3f926a6eae1a09b4ca44c459353c79a3ed34efd31b37f87733d563a&source=constructor";
 
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
         
-        {/* Навигация и Контакты */}
-        <div className={styles.topRow}>
+        <div className={styles.leftSide}>
           
-          {/* О компании / Навигация */}
-          <div className={styles.navSection}>
-            <h4 className={styles.navTitle}>Информация</h4>
-            <ul className={styles.navList}>
-              {aboutLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className={styles.navLink}>
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link href="/contact" className={styles.navLink}>
-                  Контакты
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <div className={styles.infoRow}>
+            
+            <div className={styles.navColumn}>
+              <h3 className={styles.title}>Навигация</h3>
+              <ul className={styles.list}>
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className={styles.link}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Контакты */}
-          <div className={styles.contactSection}>
-            <h4 className={styles.navTitle}>Связь</h4>
-            {contactInfo.map((item, index) => (
-              <div key={index} className={styles.contactItem}>
-                <p className={styles.contactText}>
-                  {item.type === 'phone' && '📞 '}
-                  {item.type === 'email' && '✉️ '}
-                  {item.type === 'address' && '📍 '}
-                  
-                  {item.value}
+            <div className={styles.contactsColumn}>
+              <h3 className={styles.title}>Контакты</h3>
+              <div className={styles.contactInfo}>
+                <a href="tel:+79508655519" className={styles.contactLink}>
+                  +7 (950) 865-55-19
+                </a>
+                <a href="mailto:narodnayafabrika@mail.ru" className={styles.contactLink}>
+                  narodnayafabrika@mail.ru
+                </a>
+                <p className={styles.address}>
+                  г. Донецк, ул. Заводская, 1
                 </p>
               </div>
-            ))}
-          </div>
-          
-          <div className={styles.policySection}>
-            <Link href="/policy" className={styles.policyLink}>
-              ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ
-            </Link>
-          </div>
-        </div>
-        
-        <div className={styles.bottomRow}>
-          <p className={styles.copyright}>
-            © {currentYear} ООО &quot;Народная фабрика&quot;. Все права защищены.
-          </p>
-          
-          <div className={styles.paymentIcons}>
-            <span>MIR</span>
+            </div>
           </div>
 
-          <Link 
-            href="/admin/login" 
-            className={styles.adminKeyLink}
-            title="Вход для администратора"
-          >
-            <img 
-              src="/key.svg" 
-              alt="Admin Login" 
-              className={styles.adminKeyIcon} 
-            />
-          </Link>
-          
+          <div className={styles.bottomArea}>
+            <div className={styles.divider}></div>
+            <div className={styles.bottomContent}>
+              <p className={styles.copyright}>
+                © {currentYear} ООО «Народная фабрика»
+              </p>
+              <Link href="/policy" className={styles.policyLink}>
+                Политика конфиденциальности
+              </Link>
+            </div>
+          </div>
+
         </div>
+
+        {/* ПРАВАЯ ЧАСТЬ: Карта во всю высоту */}
+        <div className={styles.mapSide}>
+          <div className={styles.mapWrapper}>
+            <iframe
+              src={MAP_URL}
+              className={styles.mapFrame}
+              width="100%"
+              height="100%"
+              allowFullScreen={true}
+              loading="lazy"
+              title="Карта проезда"
+            />
+          </div>
+        </div>
+
       </div>
     </footer>
   );

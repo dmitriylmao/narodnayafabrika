@@ -3,11 +3,13 @@
 
   /* Основной цвет дял акцентов  */
   --color-primary: #007bff; 
+  --color-primary-hover: #024996; 
   --color-secondary: #28a745; 
   
   /*текст */
   --color-text-dark: #161616; 
   --color-text-light: #eeeeee;
+  --color-text-light-hover: #9b9b9b;
   
   /* фон */
   --color-background-light: #ffffff;

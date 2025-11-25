@@ -1,6 +1,177 @@
+.mainWrapper {
+  background-color:var(--color-background-light);
+  min-height: 100vh;
+  width: 100%;
+  
+}
 
-.pageWrapper {
-  max-width: 1600px; 
-  margin: 160px auto 0; 
-  background-color: orange;
+.container {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pageTitle {
+  color: var(--color-primary); 
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 0.8;
+  margin-bottom: 40px;
+}
+
+.heroSection {
+  border: 2px solid var(--color-primary);
+  border-radius: 50px;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 600px; 
+  overflow: hidden;
+}
+
+.heroImage {
+  object-fit: cover;
+  z-index: 1;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 50%;
+  /*left: 60px; */
+  transform: translateY(-50%);
+  z-index: 2;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: rgba(0, 0, 0, 0.11); 
+  padding: 40px;
+  border-radius: 50px;
+  overflow: hidden;
+  height: 100%;
+  max-width: 50%;
+  color: var(--color-text-light);
+  backdrop-filter: blur(6px); 
+}
+
+.heroTitle {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 0.9;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.heroText {
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.infoSection {
+  padding: 0px 0;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 3fr; 
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.infoLabel h3 {
+  font-size: 20px;
+  color: var(--color-text-light-hover); 
+  font-weight: 400;
+  margin: 40px 0 0 0;
+}
+
+.infoContent {
+  color: var(--color-text-dark);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  padding: 40px 0 40px 40px;
+
+  border-left: 2px solid rgb(226, 226, 226); 
+}
+
+.subHeader {
+  margin: 20px 0 4px 0;
+  font-weight: 700;
+}
+
+.list {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  list-style-type: disc;
+  padding-left: 20px;
+  
+}
+
+.list li {
+  margin-bottom: 4px;
+}
+
+.separator {
+  border: none;
+  border-top: 2px solid rgb(226, 226, 226); 
+}
+
+/* --- АДАПТИВ (МОБИЛКА) --- */
+@media (max-width: 1024px) {
+  .heroOverlay {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    max-width: 100%;
+    border-radius: 0;
+    margin-top: -40px; /* Заезжаем на картинку снизу */
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .imageWrapper {
+    height: 300px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .infoGrid {
+    grid-template-columns: 1fr; /* Одна колонка */
+    gap: 16px;
+  }
+  
+  .pageTitle {
+    font-size: 40px;
+  }
+  
+  .heroOverlay {
+    margin: 0; /* На мобилках просто под картинкой */
+    border-radius: 0 0 20px 20px;
+    background-color: var(--color-background-dark);
+  }
+  
+  .imageWrapper {
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .infoLabel h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-primary); /* Делаем заголовки синими на мобилке для акцента */
+  }
 }

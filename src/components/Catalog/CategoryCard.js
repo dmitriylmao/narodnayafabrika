@@ -19,8 +19,9 @@ export default function CategoryCard({ category }) {
           }}
         />
       </div>
-
-      <h3 className={styles.name}>{category.name}</h3>
+      <div className={styles.contName}>
+        <h3 className={styles.name}>{category.name}</h3>
+      </div>   
     </div>
   );
 }

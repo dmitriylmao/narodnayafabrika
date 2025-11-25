@@ -1,7 +1,7 @@
 ---
-title: "Вторая новость"
+title: "Вторая новость ВТОРАЯ НОВОСТЬ  УЖЕ ВТОРАЯ ВТОРАЯЯЯ АААА"
 slug: "static-novost2"
-imageUrl: "https://i.postimg.cc/NMvmLz3L/photo-2025-10-15-18-47-15.jpg"
+imageUrl: "https://i.postimg.cc/XJbhCQW5/Snimok-ekrana-2025-11-17-214141.png"
 createdAt: "2025-10-29T12:00:00Z"
 ---
 

@@ -1,20 +1,32 @@
 .page {
-    padding: 40px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 120px;
+  background-color:var(--color-background-light);
+  min-height: 100vh;
+  width: 100%;
+}
+
+.container {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
-    font-size: 34px;
-    font-weight: 800;
-    margin-bottom: 32px;
-    color: #002b40;
+  color: var(--color-primary); 
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 0.8;
+  margin-bottom: 40px;
 }
 
 .status {
-    color: #4a5d6a;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20PX;
     margin-top: 20px;
 }
 
@@ -26,10 +38,17 @@
 
 .grid {
     width: 100%;
-    max-width: 1280px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
-    gap: 28px;
-    padding: 0 16px;
+    gap: 24px;
+    padding: 0 0 40px;
+}
+
+.grid a {
+  text-decoration: none; 
+}
+
+.grid a::after {
+  content: none !important; 
 }

@@ -1,23 +1,26 @@
 
 .container {
-    max-width: 1400px;
-    margin: 40px auto; 
-    padding: 0 20px;
-    margin-top: 120px;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px 24px 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .pageTitle {
-    color: var(--color-text, #333);
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 40px;
-    text-align: center;
+  color: var(--color-text-light);
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 0.8;
+  margin-bottom: 40px;
 }
 
 .cardGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 30px; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
     justify-items: start;
 }
 
@@ -30,10 +33,10 @@
 }
 
 .noNews {
+    background-color: transparent;
+    padding: 40px;
     text-align: center;
-    font-size: 1.2rem;
-    color: #666;
-    padding: 50px 0;
-    border: 1px solid #eee;
-    border-radius: 8px;
+    border-radius: 30px;
+    font-size: 24px;
+    color: var(--color-text-light);
 }

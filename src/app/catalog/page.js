@@ -10,27 +10,28 @@ export default async function CatalogPage() {
   if (categories.length === 0) {
     return (
       <div className={styles.page}>
-        <Breadcrumbs />
-        <h1 className={styles.title}>Каталог</h1>
-        <p className={styles.status}>Категорий пока нет</p>
+        <div className={styles.container}>
+          <h1 className={styles.title}>Каталог</h1>
+          <p className={styles.status}>Категорий пока нет</p>
+        </div>
       </div>
     );
   }
 
   return (
     <div className={styles.page}>
-      <Breadcrumbs />
+      <div className={styles.container}>
 
-      <h1 className={styles.title}>Каталог</h1>
+        <h1 className={styles.title}>Каталог</h1>
 
-      <div className={styles.grid}>
-        {categories.map(category => (
-          <Link key={category.slug} href={`/catalog/${category.slug}`}>
-            <CategoryCard category={category} />
-          </Link>
-        ))}
-      </div>
-
+        <div className={styles.grid}>
+          {categories.map(category => (
+            <Link key={category.slug} href={`/catalog/${category.slug}`}>
+              <CategoryCard category={category} />
+            </Link>
+          ))}
+        </div>
+      </div>    
     </div>
   );
 }

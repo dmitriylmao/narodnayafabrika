@@ -16,7 +16,7 @@ body {
   
   font-family: var(--font-base);
   color: var(--color-text-dark);
-  background-color: var(--color-background-light);
+  background-color: var(--color-primary);
   line-height: 1.6;
   font-feature-settings: 'lnum' 1; 
 }

@@ -4,20 +4,40 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        // Домен для PostImage.cc (который не работал)
+        hostname: 'vvs-shop.com', 
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lastfm.freetls.fastly.net', 
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'hips.hearstapps.com', 
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'encrypted-tbn0.gstatic.com', 
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co', 
+      },
+      {
+        protocol: 'https',
         hostname: 'postimg.cc', 
       },
       {
         protocol: 'https',
-        // !!! НОВЫЙ ДОМЕН ДЛЯ ПРЯМЫХ ССЫЛОК !!!
         hostname: 'i.postimg.cc', 
       },
       {
         protocol: 'https',
-        // Домен для Imgur (прямые ссылки)
         hostname: 'i.imgur.com', 
       },
-      // Добавляем wildcard для Firebase Storage на будущее (если решишь перейти)
       {
         protocol: 'https',
         hostname: '*.firebaseapp.com', 

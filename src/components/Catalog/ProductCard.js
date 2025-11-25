@@ -1,38 +1,45 @@
-// src/components/Catalog/ProductCard.js
 'use client';
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './ProductCard.module.css';
 
 export default function ProductCard({ product, categorySlug }) {
   if (!product) return null;
 
-  const { brand: brandName, title: baseProductName, volume: packSize, image: imageUrl, slug } = product;
+  const { brand, title, volume, image, slug } = product;
 
   return (
     <Link
       href={`/catalog/${categorySlug}/${slug}`}
       className={styles.card}
     >
-      <div className={styles.imageWrapper}>
-        {imageUrl ? (
-          <img
-            src={imageUrl}
-            alt={baseProductName}
+      <div className={styles.imageContainer}>
+        {image ? (
+          <Image
+            src={image}
+            alt={title}
+            fill
             className={styles.image}
-            onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/160x160/f3f4f6/a3a3a3?text=Нет+Фото'; }}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
-          <div className={styles.noImage}>Нет Фото</div>
+          <div className={styles.placeholder}>Нет фото</div>
         )}
+        
+        {/* Бейджик "Новинка" или "Хит" можно добавить сюда */}
+        {/* <span className={styles.badge}>HIT</span> */}
       </div>
 
-      <div className={styles.info}>
-        <p className={styles.brand}>{brandName}</p>
-        <p className={styles.name}>{baseProductName}</p>
-        {packSize && <p className={styles.packSize}>{packSize}</p>}
-        <button className={styles.detailsButton}>Подробнее</button>
+      <div className={styles.content}>
+        {brand && <span className={styles.brand}>{brand}</span>}
+        <h3 className={styles.title}>{title}</h3>
+        
+        <div className={styles.bottomRow}>
+          {volume && <span className={styles.volume}>{volume}</span>}
+          <span className={styles.arrowIcon}>→</span>
+        </div>
       </div>
     </Link>
   );

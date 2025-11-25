@@ -1,16 +1,13 @@
-
 .header {
-  background-color:transparent; 
+  background-color: transparent;
   padding: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   z-index: 100;
+  transition: background-color 0s ease-out; 
 }
 
 .container {
-  max-width: 1600px; 
+  max-width: 1600px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -20,7 +17,7 @@
 
 .logo {
   text-decoration: none;
-  position: relative; 
+  position: relative;
   line-height: 0;
 }
 
@@ -34,7 +31,7 @@
 }
 
 .logo:hover .logoImage {
-  transform: rotate(10deg) scale(1.02); 
+  transform: rotate(10deg) scale(1.02);
 }
 
 .navList {
@@ -47,9 +44,38 @@
   color: var(--color-text-light); 
   font-size: 20px;
   font-weight: 700;
-  transition: color 0.3s ease;
+  transition: color 0.4s ease-out;
 }
 
 .navLink:hover {
+  color: var(--color-text-light-hover); 
+}
+.navLink::after {
+  background-color: var(--color-text-light);
+}
+
+.navLink:hover::after {
+  background-color: var(--color-text-light-hover);
+}
+
+
+
+.header.themeWhite {
+  background-color: var(--color-background-light); 
+}
+
+.themeWhite .navLink {
+  color: var( --color-text-dark); 
+}
+
+.themeWhite .navLink::after {
+  background-color: var(--color-text-dark); 
+}
+
+.themeWhite .navLink:hover::after {
+  background-color: var(--color-primary);
+}
+
+.themeWhite .navLink:hover {
   color: var(--color-primary); 
 }
