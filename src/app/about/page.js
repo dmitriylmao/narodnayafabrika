@@ -11,7 +11,7 @@ export default function AboutPage() {
         <section className={styles.heroSection}>
           <div className={styles.imageWrapper}>
             <Image
-              src="/about-hero.jpg"
+              src="/about-hero.webp"
               alt="Цех Народная фабрика"
               fill
               className={styles.heroImage}

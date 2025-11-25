@@ -32,7 +32,7 @@ export default function ContractHero() {
 
           <div className={styles.imageSide}>
             <Image 
-              src="/about-hero.jpg" 
+              src="/contract-hero.webp" 
               alt="Производственная линия"
               fill
               className={styles.image}

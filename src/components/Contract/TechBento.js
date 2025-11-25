@@ -23,7 +23,7 @@ export default function TechBento() {
         <div className={styles.cardMain}>
           <div className={styles.bgImage}>
             <Image 
-              src="/about-hero.jpg" 
+              src="/bento.webp" 
               alt="Hinterkopf" 
               fill 
               className={styles.img}
