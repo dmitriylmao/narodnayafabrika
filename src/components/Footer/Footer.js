@@ -65,7 +65,6 @@ export default function Footer() {
 
         </div>
 
-        {/* ПРАВАЯ ЧАСТЬ: Карта во всю высоту */}
         <div className={styles.mapSide}>
           <div className={styles.mapWrapper}>
             <iframe

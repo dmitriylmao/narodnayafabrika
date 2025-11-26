@@ -2,8 +2,9 @@
   background-color: transparent;
   padding: 0;
   width: 100%;
-  z-index: 100;
-  transition: background-color 0s ease-out; 
+  z-index: 100; 
+  transition: background-color 0.3s ease-out;
+  position: relative; 
 }
 
 .container {
@@ -13,6 +14,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 24px var(--spacing-lg);
+  position: relative;
+  z-index: 101; 
 }
 
 .logo {
@@ -20,11 +23,10 @@
   position: relative;
   line-height: 0;
   padding: 24px 0;
+  z-index: 101;
 }
 
-.logo::after {
-  content: none;
-}
+.logo::after { content: none; }
 
 .logoImage {
   display: block;
@@ -33,6 +35,10 @@
 
 .logo:hover .logoImage {
   transform: rotate(10deg) scale(1.02);
+}
+
+.nav {
+  display: block;
 }
 
 .navList {
@@ -46,37 +52,145 @@
   font-size: 20px;
   font-weight: 700;
   transition: color 0.4s ease-out;
+  position: relative;
 }
 
-.navLink:hover {
-  color:rgb(204, 204, 204); 
-}
+.navLink:hover { color: rgb(204, 204, 204); }
+
 .navLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
   background-color: var(--color-text-light);
+  transition: width 0.3s ease;
 }
 
-.navLink:hover::after {
-  background-color:rgb(204, 204, 204); 
+.navLink:hover::after { width: 100%; background-color: rgb(204, 204, 204); }
+
+.header.themeWhite { background-color: var(--color-background-light); }
+.themeWhite .navLink { color: var(--color-text-dark); }
+.themeWhite .navLink::after { background-color: var(--color-text-dark); }
+.themeWhite .navLink:hover { color: var(--color-primary); }
+.themeWhite .navLink:hover::after { background-color: var(--color-primary); }
+
+
+.burgerBtn {
+  display: none; 
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 102; 
 }
 
-
-
-.header.themeWhite {
-  background-color: var(--color-background-light); 
+.burgerBtn span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-text-light); 
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
 }
 
-.themeWhite .navLink {
-  color: var( --color-text-dark); 
+.themeWhite .burgerBtn span {
+  background-color: var(--color-text-dark);
 }
 
-.themeWhite .navLink::after {
-  background-color: var(--color-text-dark); 
-}
+@media (max-width: 1024px) {
+  .burgerBtn {
+    display: flex;
+  }
 
-.themeWhite .navLink:hover::after {
-  background-color: var(--color-primary);
-}
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-primary);
+    
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    
+    overflow-y: auto; 
+  }
 
-.themeWhite .navLink:hover {
-  color: var(--color-primary); 
+  .header.themeWhite .nav {
+    background-color: var(--color-background-light);
+  }
+
+  .nav.navActive {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .navList {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    
+    padding-top: 80px; 
+    width: 100%;
+  }
+
+  .navLink {
+    font-size: 32px;
+    color: var(--color-text-light);
+    
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .header.themeWhite .navLink {
+    color: var(--color-text-dark);
+  }
+
+  .menuOpen .burgerBtn span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .menuOpen .burgerBtn span:nth-child(2) {
+    opacity: 0;
+  }
+  .menuOpen .burgerBtn span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .menuOpen.themeWhite .burgerBtn span {
+     background-color: var(--color-text-dark);
+  }
+  
+  .menuOpen:not(.themeWhite) .burgerBtn span {
+    background-color: var(--color-text-light);
+  }
+  
+  .menuOpen .logo {
+    position: fixed;
+    top: 24px; 
+    left: 24px; 
+    z-index: 105; 
+    padding: 0; 
+  }
+
+  .menuOpen .burgerBtn {
+    position: fixed;
+    top: 88px; 
+    right: 24px;
+    z-index: 105;
+  }
 }
