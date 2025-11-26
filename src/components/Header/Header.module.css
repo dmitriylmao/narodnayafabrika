@@ -82,7 +82,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
-  height: 20px;
+  height: 19px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -92,7 +92,7 @@
 
 .burgerBtn span {
   width: 100%;
-  height: 3px;
+  height: 2px;
   background-color: var(--color-text-light); 
   border-radius: 2px;
   transition: all 0.3s ease-in-out;
@@ -187,9 +187,14 @@
     padding: 0; 
   }
 
+  .logoImage {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
   .menuOpen .burgerBtn {
     position: fixed;
-    top: 88px; 
+    top: 78px; 
     right: 24px;
     z-index: 105;
   }
@@ -212,5 +217,16 @@
     display: block;
     width: 100%;
     padding: 0 20px;
+  }
+
+  .logoImage {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .menuOpen .burgerBtn {
+    
+    top: 68px; 
+    
   }
 }
