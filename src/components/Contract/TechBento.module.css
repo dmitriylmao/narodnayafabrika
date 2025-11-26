@@ -222,19 +222,202 @@
   height: 1px; width: 100%; background: rgba(255, 255, 255, 0.384);
 }
 
-@media (max-width: 1200px) {
-  .grid {
-    grid-template-columns: 1fr 1fr; 
-    grid-template-rows: auto;
+@media (max-width: 1300px) {
+  .section {
+    padding: 32px 20px 0;
   }
-  .cardMain { grid-column: span 2; height: 450px; }
-  .cardPdf, .cardPrint, .cardShape, .cardCoatings { grid-column: span 1; height: 300px; }
+
+  .title {
+    font-size: 40px;
+    margin-bottom: 32px;
+  }
+
+  .grid {
+    gap: 20px;
+    grid-template-rows: 280px 340px;
+  }
+
+  .cardMain {
+    padding: 24px 32px;
+  }
+
+  .cardContent h3 {
+    font-size: 80px;
+  }
+
+  .revealText {
+    font-size: 18px;
+  }
+
+  .cardPrint {
+    padding: 24px;
+  }
+
+  .cardCoatings {
+    padding: 24px 18px;
+  }
+
+  .typesPOKRITIE {
+    font-size: 30px;
+  }
+
+  .coatingsList {
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .coatingItem p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 32px 16px 0;
+  }
+
+  .title {
+    font-size: 34px;
+    margin-bottom: 28px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+    grid-auto-rows: 260px;
+    gap: 20px;
+  }
+
+  .cardMain {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-height: auto;
+    padding: 24px 24px;
+  }
+
+  .cardContent h3 {
+    font-size: 64px;
+  }
+
+  .revealText {
+    font-size: 18px;
+  }
+
+  .cardPdf,
+  .cardPrint,
+  .cardShape,
+  .cardCoatings {
+    min-height: 220px;
+  }
+
+  .typesPOKRITIE {
+    font-size: 28px;
+  }
+
+  .coatingItem p {
+    font-size: 18px;
+  }
+
+  .hoverText {
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 768px) {
-  .grid { grid-template-columns: 1fr; } 
-  .cardMain { grid-column: span 1; height: 400px; }
-  .cardPdf, .cardPrint, .cardShape, .cardCoatings { grid-column: span 1; height: 280px; }
-  
-  .title { font-size: 36px; }
+  .section {
+    padding: 28px 16px 0;
+  }
+
+  .title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 16px;
+  }
+
+  .cardMain {
+    min-height: 320px;
+    padding: 22px 18px;
+    border-radius: 32px;
+  }
+
+  .cardContent h3 {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  .badge {
+    font-size: 11px;
+  }
+
+  .revealText {
+    font-size: 16px;
+  }
+
+  .cardPdf,
+  .cardPrint,
+  .cardShape,
+  .cardCoatings {
+    border-radius: 32px;
+  }
+
+  .cardPdf {
+    padding: 20px 16px;
+  }
+
+  .pdfContent {
+    gap: 12px;
+  }
+
+  .iconBox {
+    width: 44px;
+    height: 44px;
+  }
+
+  .cardPrint {
+    padding: 20px 18px;
+  }
+
+  .paletteGrid {
+    gap: 10px;
+  }
+
+  .colorDot {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hoverText {
+    font-size: 14px;
+  }
+
+  .cardShape {
+    padding: 20px 18px 18px;
+  }
+
+  .canShape {
+    width: 52px;
+    height: 104px;
+  }
+
+  .cardContentBottom h3 {
+    font-size: 20px;
+  }
+
+  .cardCoatings {
+    padding: 20px 16px;
+  }
+
+  .typesPOKRITIE {
+    font-size: 24px;
+  }
+
+  .coatingItem p {
+    font-size: 16px;
+  }
 }
+

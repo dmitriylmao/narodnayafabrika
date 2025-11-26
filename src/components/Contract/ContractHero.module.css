@@ -115,57 +115,135 @@
   z-index: 1;
 }
 
-@media (max-width: 1024px) {
-  .heroCard {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 300px;
+@media (max-width: 1300px) {
+  .container {
+    padding: 0 20px;
+    
   }
-  
+
   .pageTitle {
-    font-size: 48px;
+    font-size: 52px;
+    margin-bottom: 32px;
+  }
+
+  .heroCard {
+    min-height: 500px;
+    border-radius: 46px;
+  }
+
+  .contentSide {
+    padding: 32px;
   }
 
   .cardHeadline {
-    font-size: 40px;
+    font-size: 44px;
+    margin-bottom: 32px;
   }
-  
+
+  .description {
+    font-size: 22px;
+    margin-bottom: 36px;
+  }
+
+  .primaryButton {
+    font-size: 22px;
+    padding: 4px 32px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 16px 32px;
+  }
+
+  .pageTitle {
+    font-size: 46px;
+    margin-bottom: 28px;
+  }
+
+  .heroCard {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    border-radius: 44px;
+  }
+
   .contentSide {
-    padding: 40px;
+    padding: 28px 24px 24px;
   }
-  
-  .gradientOverlay {
-    background: linear-gradient(180deg, var(--color-primary) 0%, transparent 100%);
+
+  .cardHeadline {
+    font-size: 38px;
+    margin-bottom: 24px;
   }
-  
+
+  .description {
+    font-size: 20px;
+    margin-bottom: 28px;
+  }
+
   .imageSide {
-    order: -1;
+    position: relative;
+    width: 100%;
+    height: 320px;
+  }
+
+  .gradientOverlay {
+    background: linear-gradient(180deg, var(--color-primary) 0%, transparent 60%);
   }
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding-bottom: 32px;
+  }
+
+  .container {
+    padding: 0 16px 28px;
+  }
+
   .pageTitle {
     font-size: 40px;
     margin-bottom: 24px;
+    line-height: 1.1;
   }
-  
+
+  .heroCard {
+    border-radius: 32px;
+  }
+
+  .contentSide {
+    padding: 22px 16px 18px;
+  }
+
   .cardHeadline {
-    font-size: 32px;
+    font-size: 26px;
+    line-height: 1.15;
+    margin-bottom: 16px;
   }
-  
+
   .description {
     font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
   }
-  
+
   .buttonWrapper {
     width: 100%;
   }
-  
+
   .primaryButton {
     width: 100%;
+    justify-content: center;
+    font-size: 16px;
+    padding: 6px 16px;
   }
-  
-  .stats {
-    flex-direction: column;
-    gap: 8px;
+
+  .imageSide {
+    height: 260px;
+  }
+
+  .gradientOverlay {
+    background: linear-gradient(180deg, var(--color-primary) 0%, transparent 60%);
   }
 }

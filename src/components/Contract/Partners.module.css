@@ -54,7 +54,67 @@
   background-color: #d6d6d6;
 }
 
-@media (max-width: 768px) {
-  .grid { flex-direction: column; gap: 30px; }
-  .divider { width: 40px; height: 1px; }
+@media (max-width: 1300px) {
+  .grid {
+    gap: 60px;
+  }
+
+  .logoItem,
+  .logoItemMetro,
+  .logoItemX5 {
+    font-size: 34px;
+  }
+
+  .divider {
+    height: 34px;
+  }
 }
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 40px 0;
+  }
+
+  .label {
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+
+  .grid {
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .logoItem,
+  .logoItemMetro,
+  .logoItemX5 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 32px 0;
+    margin-bottom: 32px;
+  }
+
+  .label {
+    font-size: 12px;
+    margin-bottom: 28px;
+  }
+
+  .logoItem,
+  .logoItemMetro,
+  .logoItemX5 {
+    font-size: 26px;
+  }
+
+  .grid {
+    gap: 28px;
+  }
+}
+

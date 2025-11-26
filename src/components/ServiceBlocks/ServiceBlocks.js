@@ -1,6 +1,6 @@
-'use client'; 
+'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './ServiceBlocks.module.css';
 
@@ -21,37 +21,55 @@ const blocksData = [
 
 export default function ServiceBlocks() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const update = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
 
   return (
+    
     <section className={styles.wrapper}>
       <div className={styles.container}>
-        
-        <div 
-          className={styles.slidingPanel} 
-          style={{ transform: `translateX(${activeIndex * 100}%)` }}
+        <div
+          className={styles.slidingPanel}
+          style={isMobile ? undefined : { transform: `translateX(${activeIndex * 100}%)` }}
         />
 
         {blocksData.map((block, index) => {
-          const isHovered = activeIndex === index;
-          
+          const isHovered = isMobile ? index === 0 : activeIndex === index;
+
           return (
             <div
               key={index}
               className={styles.block}
-              onMouseEnter={() => setActiveIndex(index)}
+              onMouseEnter={isMobile ? undefined : () => setActiveIndex(index)}
             >
               <div className={`${styles.content} ${index === 1 ? styles.alignRight : ''}`}>
-                <h3 className={`${styles.title} ${isHovered ? styles.textDark : styles.textLight}`}>
+                <h3
+                  className={`${styles.title} ${
+                    isHovered ? styles.textDark : styles.textLight
+                  }`}
+                >
                   {block.title}
                 </h3>
-                
-                <p className={`${styles.text} ${isHovered ? styles.textDark : styles.textLight}`}>
+
+                <p
+                  className={`${styles.text} ${
+                    isHovered ? styles.textDark : styles.textLight
+                  }`}
+                >
                   {block.text}
                 </p>
-                
+
                 <div className={styles.buttonWrapper}>
-                  <Link 
-                    href={block.link} 
+                  <Link
+                    href={block.link}
                     className={isHovered ? styles.btnBlue : styles.btnWhite}
                   >
                     {block.buttonText}

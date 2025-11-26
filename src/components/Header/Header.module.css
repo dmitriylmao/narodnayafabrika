@@ -181,7 +181,7 @@
   
   .menuOpen .logo {
     position: fixed;
-    top: 24px; 
+    top: 48px; 
     left: 24px; 
     z-index: 105; 
     padding: 0; 
@@ -192,5 +192,25 @@
     top: 88px; 
     right: 24px;
     z-index: 105;
+  }
+}
+
+@media (max-width: 768px) {
+  .navList {
+    
+    gap: 30px;
+    
+    padding-top: 80px; 
+    width: 100%;
+  }
+
+  .navLink {
+    font-size: 28px;
+    color: var(--color-text-light);
+    line-height: 1.2;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 0 20px;
   }
 }

@@ -65,9 +65,6 @@
 }
 
 @media (max-width: 768px) {
-  .pageWrapper {
-    padding-top: 120px;
-  }
   
   .mainTitle {
     font-size: 32px;

@@ -17,3 +17,17 @@
     margin: 0 6px;
     color: #888888;
 }
+
+@media (max-width: 1024px){
+    .breadcrumbs {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 768px){
+    .breadcrumbs {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+}

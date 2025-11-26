@@ -24,27 +24,29 @@ export default async function NewsHomeSection() {
   }
 
   return (
-    <section className={styles.section}>
-      <div className={styles.marqueeContainer}>
-        <div className={styles.marqueeContent}>
-          {generateMarqueeContent('НОВОСТИ', 40)}
+    <section className={styles.wrapper}>
+      <div className={styles.section}>
+        <div className={styles.marqueeContainer}>
+          <div className={styles.marqueeContent}>
+            {generateMarqueeContent('НОВОСТИ', 40)}
+          </div>
         </div>
-      </div>
 
-      <div className={styles.container}>
-        <div className={styles.grid}>
-          
-          {news.map(item => (
-            <HomeNewsCard key={item.slug} newsItem={item} />
-          ))}
+        <div className={styles.container}>
+          <div className={styles.grid}>
+            
+            {news.map(item => (
+              <HomeNewsCard key={item.slug} newsItem={item} />
+            ))}
 
-          <Link href="/news" className={styles.linkBlock}>
-             <span className={styles.linkText}>
-               К разделу<br />новостей
-             </span>
-             <span className={styles.arrow}>→</span>
-          </Link>
+            <Link href="/news" className={styles.linkBlock}>
+              <span className={styles.linkText}>
+                К разделу<br />новостей
+              </span>
+              <span className={styles.arrow}>→</span>
+            </Link>
 
+          </div>
         </div>
       </div>
     </section>

@@ -2,7 +2,6 @@
   background-color:var(--color-background-light);
   min-height: 100vh;
   width: 100%;
-  
 }
 
 .container {
@@ -129,49 +128,136 @@
   border-top: 2px solid rgb(226, 226, 226); 
 }
 
-/* --- АДАПТИВ (МОБИЛКА) --- */
-@media (max-width: 1024px) {
-  .heroOverlay {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    max-width: 100%;
-    border-radius: 0;
-    margin-top: -40px; /* Заезжаем на картинку снизу */
-    margin-left: 20px;
-    margin-right: 20px;
+@media (max-width: 1300px) {
+  .container {
+    padding: 0 20px;
   }
-  
+
   .imageWrapper {
-    height: 300px;
-    border-radius: 20px;
+    height: 520px;
+  }
+
+  .heroOverlay {
+    padding: 32px;
+    max-width: 55%;
+  }
+
+  .heroTitle {
+    font-size: 34px;
+  }
+
+  .heroText {
+    font-size: 20px;
+  }
+
+  .infoGrid {
+    gap: 32px;
+  }
+
+  .infoContent {
+    font-size: 18px;
+  }
+
+  .list {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 20px 24px;
+  }
+
+  .infoContent {
+    border: none;
+    padding: 0;
+  }
+  .pageTitle{
+    font-size: 48px;
+    margin-bottom: 32px;
+  }
+  .infoLabel h3 {
+    color: var(--color-primary);
+    margin-top: 32px;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .imageWrapper {
+    height: 460px;
+  }
+
+  .heroOverlay {
+    max-width: 70%;
+    padding: 24px;
+    background-color: rgba(0,0,0,0.45);
+  }
+
+  .heroTitle {
+    font-size: 28px;
+  }
+
+  .heroText {
+    font-size: 18px;
+  }
+
+  .separator{
+    display: none;
   }
 }
 
 @media (max-width: 768px) {
-  .infoGrid {
-    grid-template-columns: 1fr; /* Одна колонка */
-    gap: 16px;
+  .container {
+    padding: 0 16px 24px;
+  }
+
+  .imageWrapper {
+    height: 340px;
+  }
+
+  .heroOverlay {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 16px;
+    border-radius: 0 0 32px 32px;
+    background-color: rgba(0,0,0,0.55);
   }
   
   .pageTitle {
     font-size: 40px;
+    margin-bottom: 24px;
   }
-  
-  .heroOverlay {
-    margin: 0; /* На мобилках просто под картинкой */
-    border-radius: 0 0 20px 20px;
-    background-color: var(--color-background-dark);
+
+  .heroTitle {
+    font-size: 24px;
+    margin-bottom: 12px;
   }
-  
-  .imageWrapper {
-    border-radius: 20px 20px 0 0;
+
+  .heroText {
+    font-size: 16px;
+    line-height: 1.45;
   }
-  
+
   .infoLabel h3 {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--color-primary); /* Делаем заголовки синими на мобилке для акцента */
+    color: var(--color-primary);
+    margin-top: 24px;
+  }
+
+  .infoContent {
+    border: none;
+    padding: 0;
+  }
+
+  .infoSection {
+    padding: 12px 0;
+  }
+
+  .list {
+    font-size: 16px;
   }
 }

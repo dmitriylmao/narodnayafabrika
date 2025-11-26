@@ -23,6 +23,28 @@
     grid-template-columns: repeat(1, 1fr);
 }
 
+@media (max-width: 1024px) {
+  .pageTitle {
+    font-size: 48px;
+    margin-bottom: 32px;
+  }
+
+  .contentContainer {
+    padding: 0px 20px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+   .pageTitle {
+    font-size: 40px;
+    margin-bottom: 24px;
+  }
+
+  .contentContainer {
+    padding: 0px 16px 40px;
+  }
+}
+
 @media (min-width: 768px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);

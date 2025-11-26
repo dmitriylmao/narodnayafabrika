@@ -103,3 +103,82 @@
   color: var(--color-text-light);
   transform: scale(1.02);
 }
+
+@media (max-width: 1300px) {
+  .card {
+    height: 420px;
+  }
+
+  .imageWrapper {
+    height: 240px;
+  }
+
+  .content{
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 22px;
+    font-weight:800;
+  }
+
+  .text {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .buttonWrapper {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .card {
+    height: auto;
+    min-height: 360px;
+  }
+
+  .imageWrapper {
+    height: 190px;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .text {
+    font-size: 16px;
+    -webkit-line-clamp: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    height: auto;
+    min-height: 0;
+    border-radius: 26px;
+  }
+
+  .imageWrapper {
+    height: 200px;
+    border-radius: 24px;
+  }
+
+  .content {
+    padding: 18px 16px 16px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .text {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+}

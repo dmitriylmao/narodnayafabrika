@@ -69,19 +69,39 @@
     gap: 24px;
 }
 
-
 @media (max-width: 900px) {
+    .heading {
+        font-size: 36px;
+        font-weight: 700;
+    }
+
+    .description {
+        font-size: 18px;
+    }
+
     .mainContentWrapper {
-        
         flex-direction: column;
     }
+
+    .pageContainer {
+        padding: 0 16px 24px; 
+    } 
 
     .gridContainer {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 440px) {
+    .heading {
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
     .gridContainer {
         grid-template-columns: 1fr;
     }

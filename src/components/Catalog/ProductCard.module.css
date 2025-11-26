@@ -117,3 +117,59 @@
   opacity: 1;
   transform: translateX(0);
 }
+
+@media (max-width: 900px) {
+  .card {
+    border-radius: 24px;
+  }
+
+  .imageContainer {
+    border-radius: 22px;
+  }
+
+  .content {
+    padding: 10px 16px 4px 16px;
+    gap: 4px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .bottomRow {
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 440px) {
+  .card {
+    border-radius: 20px;
+  }
+
+  .imageContainer {
+    border-radius: 18px;
+    padding-top: 80%;
+  }
+
+  .content {
+    padding: 8px 12px 4px 12px;
+  }
+
+  .brand {
+    font-size: 11px;
+  }
+
+  .title {
+    font-size: 15px;
+    -webkit-line-clamp: 3;
+  }
+
+  .volume {
+    font-size: 11px;
+  }
+
+  .arrowIcon {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

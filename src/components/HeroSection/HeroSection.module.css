@@ -37,15 +37,28 @@
   pointer-events: none; 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1300px) {
+  .wrapper {
+    padding: 0 20px; 
+  }
+
   .container {
     height: 400px; 
-    border-radius: 30px;
+    border-radius: 44px; 
   }
-  .video {
-    width: 200%; 
-    height: 300%; 
-    top: -100%; /* (300/2) - (100/2) = 150 - 50 = 100 */
-    left: -50%; /* (200/2) - (100/2) = 100 - 50 = 50 */
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    padding: 0 16px; 
+  }
+  .container {
+    border-radius: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    border-radius: 32px; 
   }
 }

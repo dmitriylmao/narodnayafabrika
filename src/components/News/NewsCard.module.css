@@ -113,3 +113,95 @@
     font-size: 12px; 
     font-weight: 400;
 }
+
+@media (max-width: 1300px) {
+  .readMore {
+    display: none;
+  }
+
+  .downContent {
+    justify-content: flex-start;
+  }
+
+  .date {
+    display: block;
+    font-size: 13px;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .card {
+    height: 220px;
+    border-radius: 36px;
+  }
+
+  .imageWrapper {
+    min-width: 220px;
+    border-radius: 36px;
+  }
+
+  .content {
+    padding: 16px 20px 20px;
+  }
+
+  .title {
+    font-size: 22px;
+    -webkit-line-clamp: 2;
+  }
+
+  .text {
+    font-size: 15px;
+    -webkit-line-clamp: 3;
+  }
+
+  .readMore {
+    font-size: 15px;
+    padding: 4px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    height: auto;
+    min-height: 180px;
+    border-radius: 32px;
+  }
+
+  .imageWrapper {
+    min-width: 40%;
+    max-width: 210px;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    border-radius: 32px;
+    border-width: 2px;
+  }
+
+  .content {
+    padding: 14px 14px 16px;
+  }
+
+  .title {
+    font-size: 20px;
+    -webkit-line-clamp: 2;
+  }
+
+  .text {
+    font-size: 14px;
+    -webkit-line-clamp: 3;
+  }
+
+  .downContent {
+    gap: 8px;
+  }
+
+  .readMore {
+    font-size: 14px;
+    padding: 6px 18px;
+  }
+
+  .date {
+    font-size: 11px;
+    padding-right: 0;
+  }
+}
