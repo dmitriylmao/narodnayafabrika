@@ -89,6 +89,7 @@
 
     .gridContainer {
         grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
     }
 }
 
@@ -103,6 +104,6 @@
     }
 
     .gridContainer {
-        grid-template-columns: 1fr;
+        gap: 12px;
     }
 }

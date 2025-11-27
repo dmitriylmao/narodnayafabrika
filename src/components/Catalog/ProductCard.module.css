@@ -137,7 +137,7 @@
   }
 
   .bottomRow {
-    margin-top: 6px;
+    margin-top: 0px;
   }
 }
 
@@ -148,24 +148,26 @@
 
   .imageContainer {
     border-radius: 18px;
-    padding-top: 80%;
+    padding-top: 100%;
   }
 
   .content {
     padding: 8px 12px 4px 12px;
+    gap:2px;
   }
 
   .brand {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .title {
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 1.1;
     -webkit-line-clamp: 3;
   }
 
   .volume {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .arrowIcon {

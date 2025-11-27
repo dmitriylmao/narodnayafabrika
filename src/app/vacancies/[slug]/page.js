@@ -1,4 +1,3 @@
-// src/app/vacancies/[slug]/page.js (Исправлено)
 
 import { notFound } from 'next/navigation';
 import { getAllVacanciesSlugs, getVacancyData } from '@/utils/vacancies';
